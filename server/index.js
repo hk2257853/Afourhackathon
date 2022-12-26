@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import adminRoutes from "./routes/adminroutes.js";
 import userRoutes from "./routes/users.js"
+import userSkillRoutes from "./routes/userskill.js"
 
 const app = express();
 
@@ -15,6 +16,7 @@ const PORT = 1300;
 
 app.use("/admin", adminRoutes);
 app.use("/user", userRoutes);
+app.use("/userskill", userSkillRoutes);
 
 const CONNECTION_URL = "mongodb://0.0.0.0:27017/Hackathon";
 

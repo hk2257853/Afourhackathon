@@ -1,3 +1,5 @@
+// This part is related to auth
+
 import express from "express";
 
 import { signin, signup } from "../controller/user.js";

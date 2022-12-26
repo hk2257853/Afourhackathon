@@ -22,7 +22,7 @@ export const createAdminItem = async (req, res) => {
   
     try {
       await newAdminItem.save();
-      // res.status(201).json(newAdminItem);
+      res.status(200).json({ message: "created successfully" });
     } catch (error) {
       res.status(409).json({ message: error.message });
     }
