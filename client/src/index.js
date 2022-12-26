@@ -5,6 +5,7 @@ import About from "./Components/aboutus";
 import Contact from "./Components/contactus";
 import Menu from "./Components/Menu/menu";
 import Navbar from "./Components/navbar";
+import SkillForm from "./Components/SkillForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Auth from "./Components/auth";
 import AdminProduct from "./Components/adminproduct";
@@ -22,6 +23,8 @@ root.render(
         <Route path="/menu" element={<Menu />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/admin" element={<AdminProduct />} />
+        <Route path="/admin" element={<AdminProduct />} />
+        <Route path="/skillform" element={<SkillForm />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
