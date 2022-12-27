@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as api from "../api"
-import Cards from "../Components/Menu/cards"
+import Skillcard from "./Skillcard";
 
 function Userskills() {
   const [uskilldata, setuskilldata] = useState([]);
@@ -9,7 +9,7 @@ function Userskills() {
     try {
       api.getUserSkill()
         .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setuskilldata(res.data);
         });
     } catch (error) {
@@ -28,7 +28,7 @@ function Userskills() {
             uskilldata.map((uskilldata) => {
               return (
                 <>
-                  <Cards item={uskilldata} />
+                  <Skillcard props={uskilldata} />
                 </>
               )
             })
