@@ -1,10 +1,10 @@
 
 function Cards({item}) {
-    const { name } = item;
+    const { domain } = item;
 
     return (
-        <>       
-             <h5 className="lead">{name}</h5>
+        <>
+             <h5 className="lead">{domain}</h5>
         </>
     )
 }

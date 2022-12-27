@@ -1,16 +1,27 @@
 import React,{useState} from 'react'
 import "./index.css"
+import * as api from "../api"
+
 function SkillForm() {
     const [domain, setDomain] = useState("tech")
     const [skill, setSkill] = useState("")
     const [skillLevel, setSkillLevel] = useState("")
-    const [yearsOfExperience, setYearsOfExperience] = useState("")
+    const [yearsOfExperience, setYearsOfExperience] = useState()
     const [hardCoredSkills, setHardCoredSkills] = useState([{"value":"webdevelopment","option":"Web Development"},{"value":"appdevelopment","option":"App Development"},{"value":"datascience","option":"Data Science"}])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(domain, skill, skillLevel, yearsOfExperience)
+        
+        try {
+            const userSkill = {domain, skill, skillLevel, yearsOfExperience}
+            console.log(userSkill);
+            api.createUserSkill(userSkill)
+        } catch (error) {
+            console.log(error.message);
+        }
+
     }
+
     const handleChangeDomain = (e) => {
         setDomain(e.target.value)
         console.log(domain);
@@ -25,6 +36,7 @@ function SkillForm() {
         }
         console.log(hardCoredSkills);
     }
+
     const handleChangeSkill = (e) => {
         setSkill(e.target.value)
     }
@@ -34,6 +46,7 @@ function SkillForm() {
     const handleChangeYearsOfExperience = (e) => {
         setYearsOfExperience(e.target.value)
     }
+
     return (
         <div className="form h-1/2 mx-auto w-1/2 rounded-2xl border border-3 border-gray-800 bg-slate-100 hover:bg-gray-100">
             <form className="flex flex-col items-center">
