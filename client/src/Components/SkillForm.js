@@ -24,7 +24,7 @@ function SkillForm() {
 
     const handleChangeDomain = (e) => {
         setDomain(e.target.value)
-        console.log(domain);
+        // console.log(domain);
         if (domain === "tech"){
             setHardCoredSkills([{"value":"webdevelopment","option":"Web Development"},{"value":"appdevelopment","option":"App Development"},{"value":"datascience","option":"Data Science"}])
         }
@@ -34,7 +34,7 @@ function SkillForm() {
         else if (domain === "project management"){
             setHardCoredSkills([{"value":"pmp","option":"PMP"},{"value":"agile","option":"Agile"},{"value":"scrum","option":"Scrum"}])
         }
-        console.log(hardCoredSkills);
+        // console.log(hardCoredSkills);
     }
 
     const handleChangeSkill = (e) => {
