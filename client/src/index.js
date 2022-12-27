@@ -8,6 +8,8 @@ import Navbar from "./Components/navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Auth from "./Components/auth";
 import AdminProduct from "./Components/adminproduct";
+import SkillForm from "./Components/SkillForm";
+import UskillData from "./Components/userskills"
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 
@@ -22,6 +24,8 @@ root.render(
         <Route path="/menu" element={<Menu />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/admin" element={<AdminProduct />} />
+        <Route path="/skillform" element={<SkillForm />} />
+        <Route path="/uskilldata" element={<UskillData/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
