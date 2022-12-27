@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-import adminRoutes from "./routes/adminroutes.js";
+import mentorRoutes from "./routes/mentorroutes.js";
 import userRoutes from "./routes/users.js"
 import userSkillRoutes from "./routes/userskill.js"
 
@@ -14,7 +14,7 @@ app.use(cors());
 
 const PORT = 1300;
 
-app.use("/admin", adminRoutes);
+app.use("/mentor", mentorRoutes);
 app.use("/user", userRoutes);
 app.use("/userskill", userSkillRoutes);
 

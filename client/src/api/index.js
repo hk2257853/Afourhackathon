@@ -13,8 +13,8 @@ API.interceptors.request.use((req) => {
     return req;
   });
 
-export const fetchAdminItems = () => API.get("/admin"); // http://localhost:1300 + /admin concatinated
-export const createAdminItems = (newAdminItem) => API.post("/admin", newAdminItem);
+export const getMentorDatas = () => API.get("/mentor"); // http://localhost:1300 + /mentor concatinated
+export const createMentorData = (newAdminData) => API.post("/mentor", newAdminData);
 
 export const getUserSkill = () => API.get("/userskill");
 export const createUserSkill = (newSkillData) => API.post("/userskill", newSkillData);

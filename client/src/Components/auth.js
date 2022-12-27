@@ -157,6 +157,22 @@ const Auth = () => {
                           </a>
                         </div> */}
 
+                      {isSignup && (
+                        <div className="row">  
+                      <div className="form-check col">
+                        <input className="form-check-input" type="radio" onChange={handleChange} name="uType" id="buyerType" value="user"/>
+                        <label className="form-check-label" for="flexRadioDefault1">
+                          User
+                        </label>
+                      </div>
+                      <div className="form-check col">
+                        <input className="form-check-input" type="radio" onChange={handleChange} name="uType" id="sellerType" value="admin"/>
+                        <label className="form-check-label" for="flexRadioDefault2">
+                          Mentor/Admin
+                        </label>
+                      </div>
+                      </div>)}
+
                         <div className="col-12">
                           <button
                             type="submit"

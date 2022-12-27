@@ -1,27 +1,28 @@
 import express from "express";
-import AdminItem from "../models/adminproduct.js";
+import MentorData from "../models/mentorskill.js";
 
 const router = express.Router();
 
-export const getAdminItems = async (req, res) => {
+export const getMentorDatas = async (req, res) => {
   try {
-    const adminItem = await AdminItem.find({});
+    const mentorData = await MentorData.find({"creator":req.userId});
     // console.log(AdminItem);
-    res.status(200).json(adminItem);
+    res.status(200).json(mentorData);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
 
-export const createAdminItem = async (req, res) => {
+export const createMentorData = async (req, res) => {
     const post = req.body;
   
-    const newAdminItem = new AdminItem({
+    const newMentorData = new MentorData({
       ...post,
+      creator: req.userId,
     });
   
     try {
-      await newAdminItem.save();
+      await newMentorData.save();
       res.status(200).json({ message: "created successfully" });
     } catch (error) {
       res.status(409).json({ message: error.message });

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import * as api from "../../api"
-import Cards from "./cards";
+import * as api from "../api"
+import Skillcard from "./Skillcard";
 
-function Menu() {
-  const [item, setItem] = useState([]);
+function Userskills() {
+  const [mskilldata, setmskilldata] = useState([]);
 
   useEffect(() => {
     try {
-      api.fetchAdminItems()
+      api.getMentorDatas()
         .then((res) => {
-          setItem(res.data);
+            // console.log(res.data)
+            setmskilldata(res.data);
         });
     } catch (error) {
       console.log(error.message);
@@ -18,16 +19,14 @@ function Menu() {
 
   return (
     <>
-      <div className="container-text container text-center">
-        <h4>basic store retrival code</h4>
-      </div>
+    {/* {TODO: replace this bootrap with tailwind} */}      
       <div className="menu-container ">
         <div className="card-container container">
           {
-            item.map((item) => {
+            mskilldata.map((mskilldata) => {
               return (
                 <>
-                  <Cards item={item} />
+                  <Skillcard props={mskilldata} />
                 </>
               )
             })
@@ -38,4 +37,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default Userskills;
