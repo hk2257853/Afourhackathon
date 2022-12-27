@@ -5,7 +5,8 @@ const router = express.Router();
 
 export const getUserSkill = async (req, res) => {
   try {
-    const skillData = await SkillData.find({});
+    const skillData = await SkillData.find({"creator":req.userId});
+    // const skillData = await SkillData.find({});
     res.status(200).json(skillData);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -17,6 +18,7 @@ export const createUserSkill = async (req, res) => {
   
     const newSkillData = new SkillData({
       ...post,
+      creator: req.userId,
     });
   
     try {

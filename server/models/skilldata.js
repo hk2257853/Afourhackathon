@@ -5,6 +5,7 @@ const userSkillSchema = mongoose.Schema({
     skill: String,
     skillLevel: String,
     yearsOfExperience: Number,    
+    creator: String,
 })
 
 var SkillData = mongoose.model("userSkillData", userSkillSchema);
