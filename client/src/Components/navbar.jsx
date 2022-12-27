@@ -56,7 +56,7 @@ function Navbar() {
                                 <Link to="/" className="nav-link active">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/menu" className="nav-link active">Menu</Link>
+                                <Link to="/uskilldata" className="nav-link active">Myskills</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/aboutus" className="nav-link active">About us</Link>
@@ -65,7 +65,7 @@ function Navbar() {
                                 <Link to="/contactus" className="nav-link active">Contactus</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/admin" className="nav-link active">Admin</Link>
+                                <Link to="/skillform" className="nav-link active">Skillform</Link>
                             </li>
                         </ul>
 

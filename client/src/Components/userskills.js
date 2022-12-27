@@ -19,9 +19,7 @@ function Userskills() {
 
   return (
     <>
-      <div className="container-text container text-center">
-        <h4>basic store retrival code</h4>
-      </div>
+    {/* {TODO: replace this bootrap with tailwind} */}      
       <div className="menu-container ">
         <div className="card-container container">
           {
