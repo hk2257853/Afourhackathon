@@ -12,20 +12,22 @@ function Skillcard(props) {
         if (ans){
             const card = document.getElementById("card" + props.id)
             card.remove()
-            console.log(location.pathname)
+            // console.log(location.pathname)
             if(location.pathname == "/uskilldata")
             {
                 try {
                     api.deleteUserSkill(props.props._id)
                 } catch (error) {
                     console.log(error)
-                }
-                return;
+                }                
             }
-            try {
-                api.deleteMentorData(props.props._id);
-            } catch (error) {
-                console.log(error)
+            else
+            {
+                try {
+                    api.deleteMentorData(props.props._id);
+                } catch (error) {
+                    console.log(error)
+                }
             }
         }
 
