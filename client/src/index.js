@@ -7,7 +7,7 @@ import Navbar from "./Components/navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Auth from "./Components/auth";
 import SkillForm from "./Components/SkillForm";
-import UskillData from "./Components/userskills"
+// import UskillData from "./Components/userskills"
 import Mentorform from "./Components/mentorform"
 import MentorSkills from "./Components/mentorskills"
 
@@ -23,7 +23,7 @@ root.render(
         <Route path="/contactus" element={<Contact />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/skillform" element={<SkillForm />} />
-        <Route path="/uskilldata" element={<UskillData/>}/>
+        <Route path="/uskilldata" element={<MentorSkills/>}/>
         <Route path="/mentorform" element={<Mentorform/>}/>
         <Route path="/mentordata" element={<MentorSkills/>}/>
       </Routes>

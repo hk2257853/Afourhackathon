@@ -2,19 +2,21 @@ import { useEffect, useState } from "react";
 import * as api from "../api"
 import Skillcard from "./Skillcard";
 import Paggination from "./paggination";
+import { useLocation } from "react-router";
 // TODO: should I combine userskills n mentorskills??
 
 function Userskills() {
-  const [mskilldata, setmskilldata] = useState([]);
+  const [skilldata, setskilldata] = useState([]);
   const [search, setSearch] = useState(" ");
   const [searchbardata, setSearchbarData] = useState("");
+  const location = useLocation()
 
-  const [postperpage, Setpostperpage] = useState(3)
+  const [postperpage, Setpostperpage] = useState(5)
   const [currentpage, Setcurrentpage] = useState(1)
   const indexoflastpost = currentpage * postperpage;
   const indexoffirstpost = indexoflastpost - postperpage;
 
-  const currentpost = mskilldata.slice(indexoffirstpost, indexoflastpost);
+  const currentpost = skilldata.slice(indexoffirstpost, indexoflastpost);
   console.log(currentpost)
   const pagginate = (num) => {
     Setcurrentpage(num);
@@ -30,25 +32,41 @@ function Userskills() {
   TODO: hide pagination part when search != " "
   */
   const handleSubmit = (e) => {
-    Setpostperpage(mskilldata.length); 
+    Setpostperpage(skilldata.length); 
     setSearch(searchbardata);
   }
 
   const handleCancel = (e) => {
-    Setpostperpage(3); 
+    Setpostperpage(5); 
     setSearch(" ");    
   }
   
   useEffect(() => {
+    if(location.pathname ==="/mentordata")
+    {
+      try {
+        api.getMentorDatas()
+          .then((res) => {
+              // console.log(res.data)
+              setskilldata(res.data);
+          });
+      } catch (error) {
+        console.log(error.message);
+      }
+  }
+  else{
     try {
-      api.getMentorDatas()
-        .then((res) => {
+      api.getUserSkill()
+      .then((res) => {
             // console.log(res.data)
-            setmskilldata(res.data);
+            setskilldata(res.data);
         });
     } catch (error) {
       console.log(error.message);
     }
+
+  }
+
   }, []);
 
   return (
@@ -73,10 +91,10 @@ function Userskills() {
               if (val.skill.toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
                 return val;
               }
-            }).map((mskilldata) => {
+            }).map((skilldata) => {
               return (
                 <>
-                  <Skillcard props={mskilldata} />
+                  <Skillcard props={skilldata} />
                 </>
               )
             })
@@ -84,12 +102,12 @@ function Userskills() {
         </div>
 
         <div className="paagination-section center">
-          <Paggination totalpost={mskilldata.length} postperpage={postperpage} pagginate={pagginate} />
+          <Paggination totalpost={skilldata.length} postperpage={postperpage} pagginate={pagginate} />
         </div>
 
         <div className="search-container container text-center">
         <div className="serach-bar">
-          <input className="search-input" type="number" name="" id="" placeholder="data per page" min="1" max={mskilldata.length} onChange={(event) => { Setpostperpage(event.target.value) }}/>
+          <input className="search-input" type="number" name="" id="" placeholder="data per page" min="1" max={skilldata.length} onChange={(event) => { Setpostperpage(event.target.value) }}/>
           {/* <button type="button" className="btn btn-primary" required onClick={handleSubmit}>Submit</button> */}
         </div>
       </div>
