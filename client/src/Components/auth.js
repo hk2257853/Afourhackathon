@@ -32,9 +32,9 @@ const Auth = () => {
         .then((res) => {
           const response = res.data;
           localStorage.setItem("profile", JSON.stringify({ response }));
+          navigate("/");
         });
 
-      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -46,8 +46,8 @@ const Auth = () => {
         .then((res) => {
           const response = res.data;
           localStorage.setItem("profile", JSON.stringify({ response }));
+          navigate("/");
         });
-      navigate("/");
     } catch (error) {
       console.log(error);
     }

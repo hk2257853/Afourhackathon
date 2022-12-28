@@ -1,5 +1,6 @@
 import express from "express";
 import SkillData from "../models/skilldata.js";
+import mongoose from "mongoose";
 
 const router = express.Router();
 
@@ -29,4 +30,15 @@ export const createUserSkill = async (req, res) => {
     }
   };
   
+  export const deleteUserSkill = async (req, res) => {
+    const { id } = req.params;
+  
+    if (!mongoose.Types.ObjectId.isValid(id))
+      return res.status(404).send(`No post with id: ${id}`);
+  
+    await SkillData.findByIdAndRemove(id);
+  
+    res.json({ message: "User data deleted successfully." });
+  };
+
   export default router;

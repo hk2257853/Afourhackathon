@@ -1,12 +1,32 @@
 import React from 'react'
 import "./index.css"
+import * as api from "../api"
+import { useLocation } from "react-router";
+
 function Skillcard(props) {
+
+    let location = useLocation();
 
     const deleteSkill = () => {
         let ans = window.confirm("Are you sure you want to delete?");
         if (ans){
             const card = document.getElementById("card" + props.id)
             card.remove()
+            console.log(location.pathname)
+            if(location.pathname == "/uskilldata")
+            {
+                try {
+                    api.deleteUserSkill(props.props._id)
+                } catch (error) {
+                    console.log(error)
+                }
+                return;
+            }
+            try {
+                api.deleteMentorData(props.props._id);
+            } catch (error) {
+                console.log(error)
+            }
         }
 
     }

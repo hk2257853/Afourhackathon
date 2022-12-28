@@ -1,5 +1,6 @@
 import express from "express";
 import MentorData from "../models/mentorskill.js";
+import mongoose from "mongoose";
 
 const router = express.Router();
 
@@ -28,5 +29,17 @@ export const createMentorData = async (req, res) => {
       res.status(409).json({ message: error.message });
     }
   };
+
+  export const deleteMentorData = async (req, res) => {
+    const { id } = req.params;
+  
+    if (!mongoose.Types.ObjectId.isValid(id))
+      return res.status(404).send(`No post with id: ${id}`);
+  
+    await MentorData.findByIdAndRemove(id);
+  
+    res.json({ message: "Mentor data deleted successfully." });
+  };
+  
   
   export default router;

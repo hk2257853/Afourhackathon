@@ -11,7 +11,7 @@ function Navbar() {
 
     // const user = false;
     useEffect(
-        () => {
+        () => {            
         //   to refresh on login
           const token = user?.response.token;
         //   console.log(user.response.result.utype)
@@ -21,14 +21,10 @@ function Navbar() {
               if (decodedToken.exp * 1000 < new Date().getTime()) {
               logout();
             }
-    
-            setUser(JSON.parse(localStorage.getItem("profile")));
-          }
-        },
-        [
-          location,
-        ] /*on location change run this to set user. No no need to refresh to get profile in navbar on login */
-      );    
+        }
+        setUser(JSON.parse(localStorage.getItem("profile")));
+        }, [location]);    
+        /*on location change run this to set user. No no need to refresh to get profile in navbar on login */
 
       const logout = () => {
         localStorage.clear();
