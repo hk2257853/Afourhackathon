@@ -17,7 +17,7 @@ function Userskills() {
   const indexoffirstpost = indexoflastpost - postperpage;
 
   const currentpost = skilldata.slice(indexoffirstpost, indexoflastpost);
-  console.log(currentpost)
+  // console.log(currentpost)
   const pagginate = (num) => {
     Setcurrentpage(num);
   }
@@ -94,7 +94,7 @@ function Userskills() {
             }).map((skilldata) => {
               return (
                 <>
-                  <Skillcard props={skilldata} />
+                  <Skillcard key={skilldata._id} props={skilldata} />
                 </>
               )
             })

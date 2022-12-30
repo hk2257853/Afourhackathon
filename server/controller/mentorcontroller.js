@@ -6,7 +6,7 @@ const router = express.Router();
 
 export const getMentorDatas = async (req, res) => {
   try {
-    const mentorData = await MentorData.find({"creator":req.userId});
+    const mentorData = await MentorData.find({});
     // console.log(AdminItem);
     res.status(200).json(mentorData);
   } catch (error) {
@@ -39,6 +39,18 @@ export const createMentorData = async (req, res) => {
     await MentorData.findByIdAndRemove(id);
   
     res.json({ message: "Mentor data deleted successfully." });
+  };
+  
+  export const updateMentorData = async (req, res) => {
+    const { id } = req.params;
+    const { domain, skill, creator } = req.body;
+  
+    if (!mongoose.Types.ObjectId.isValid(id))
+      return res.status(404).send(`No post with id: ${id}`);
+  
+    const updatedPost = { creator, domain, skill, _id: id };
+    await MentorData.findByIdAndUpdate(id, updatedPost, { new: true });
+    res.json(updatedPost);
   };
   
   

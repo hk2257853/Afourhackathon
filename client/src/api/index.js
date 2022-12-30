@@ -16,6 +16,8 @@ API.interceptors.request.use((req) => {
 export const getMentorDatas = () => API.get("/mentor"); // http://localhost:1300 + /mentor concatinated
 export const createMentorData = (newAdminData) => API.post("/mentor", newAdminData);
 export const deleteMentorData = (id) => API.delete(`/mentor/${id}`);
+export const updatePost = (id, updatedData) => API.patch(`/mentor/${id}`, updatedData);
+
 
 export const getUserSkill = () => API.get("/userskill");
 export const createUserSkill = (newSkillData) => API.post("/userskill", newSkillData);

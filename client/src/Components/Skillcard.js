@@ -10,8 +10,9 @@ function Skillcard(props) {
     const deleteSkill = () => {
         let ans = window.confirm("Are you sure you want to delete?");
         if (ans){
-            const card = document.getElementById("card" + props.props._id)
-            card.remove()
+            // TO SOLVE: the buy's partially solved for now
+            // const card = document.getElementById("card" + props.props._id)
+            // card.remove()
             // console.log(location.pathname)
             if(location.pathname == "/uskilldata")
             {
@@ -33,10 +34,12 @@ function Skillcard(props) {
 
     }
     const editSkill = () => {
+        console.log(props.props._id)
         const skillLevel = document.getElementById("skillLevel"+props.id);
         const yearsOfExperience = document.getElementById("yearsOfExperience"+props.id);
         skillLevel.contentEditable = true;
         yearsOfExperience.contentEditable = true;
+        // api.updatePost(id, post);
     }
     return (
         <div className="skillCard flex justify-center">
