@@ -3,7 +3,7 @@ import "./index.css"
 import * as api from "../api"
 
 function SkillForm() {
-    const [domain, setDomain] = useState("tech")
+    const [domain, setDomain] = useState("")
     const [skill, setSkill] = useState("")
     const [skillLevel, setSkillLevel] = useState("")
     const [yearsOfExperience, setYearsOfExperience] = useState()
@@ -15,7 +15,7 @@ function SkillForm() {
         
         try {
             const userSkill = {domain, skill, skillLevel, yearsOfExperience}
-            console.log(userSkill);
+            // console.log(userSkill);
             api.createUserSkill(userSkill)
         } catch (error) {
             console.log(error.message);
@@ -30,7 +30,8 @@ function SkillForm() {
         })
         // console.log(skilloptiondata)
         setSkillOption(skilloptiondata)
-        // console.log(skillOption)
+        console.log(skillOption)
+        console.log(domain)
     }
 
     const handleChangeSkill = (e) => {
@@ -54,10 +55,6 @@ function SkillForm() {
         }
     }, [])
 
-    useEffect(()=>{
-        console.log(skillOption)
-    }, [skillOption])
-
     return (
         <div className="form h-1/2 mx-auto w-1/2 rounded-2xl border border-3 border-gray-800 bg-slate-100 hover:bg-gray-100">
             <form className="flex flex-col items-center">
@@ -70,9 +67,7 @@ function SkillForm() {
                 <select onChange={handleChangeSkill} className="my-6 w-64 rounded-lg p-2 md:w-1/2 bg-slate-100 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" name="skill" id="skill">
                     {
                         skillOption.map((skill)=>{
-                            <option value={skill.skill}>{skill.skill}</option>
-                            console.log(skill.skill)
-                            // TO SOLVE: the data is there but its not printing why?
+                            return (<option key={skill._id} value={skill.skill}>{skill.skill}</option>)                            
                         })
                     }
                 </select>

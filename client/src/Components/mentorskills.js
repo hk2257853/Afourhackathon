@@ -34,6 +34,7 @@ function Userskills() {
   const handleSubmit = (e) => {
     Setpostperpage(skilldata.length); 
     setSearch(searchbardata);
+    Setcurrentpage(1)
   }
 
   const handleCancel = (e) => {
@@ -69,6 +70,33 @@ function Userskills() {
 
   }, []);
 
+  const deleteSkill = (id) => {
+    let ans = window.confirm("Are you sure you want to delete?");
+    const newskillData = skilldata.filter((skill) => {return skill._id != id});
+    setskilldata(newskillData);
+  
+
+    if (ans){
+        if(location.pathname == "/uskilldata")
+        {
+            try {
+                api.deleteUserSkill(id)
+            } catch (error) {
+                console.log(error)
+            }                
+        }
+        else
+        {
+            try {
+                api.deleteMentorData(id);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }
+
+  }
+
   return (
     <>
     {/* {TODO: replace this bootrap with tailwind} */}
@@ -94,7 +122,7 @@ function Userskills() {
             }).map((skilldata) => {
               return (
                 <>
-                  <Skillcard key={skilldata._id} props={skilldata} />
+                  <Skillcard key={skilldata._id} props={skilldata} deleteSkill={deleteSkill} />
                 </>
               )
             })
