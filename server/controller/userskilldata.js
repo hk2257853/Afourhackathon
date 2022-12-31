@@ -41,4 +41,16 @@ export const createUserSkill = async (req, res) => {
     res.json({ message: "User data deleted successfully." });
   };
 
+  export const updateUserSkill = async (req, res) => {
+    const { id } = req.params;
+    const { domain, skill, skillLevel, yearsOfExperience, creator } = req.body;
+  
+    if (!mongoose.Types.ObjectId.isValid(id))
+      return res.status(404).send(`No post with id: ${id}`);
+  
+    const updatedPost = { creator, domain, skill, skillLevel, yearsOfExperience, _id: id };
+    await SkillData.findByIdAndUpdate(id, updatedPost, { new: true });
+    res.json(updatedPost);
+  };
+
   export default router;

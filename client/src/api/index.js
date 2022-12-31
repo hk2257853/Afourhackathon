@@ -22,6 +22,7 @@ export const updatePost = (id, updatedData) => API.patch(`/mentor/${id}`, update
 export const getUserSkill = () => API.get("/userskill");
 export const createUserSkill = (newSkillData) => API.post("/userskill", newSkillData);
 export const deleteUserSkill = (id) => API.delete(`/userskill/${id}`);
+export const updateUserSkill = (id, updatedData) => API.patch(`/userskill/${id}`, updatedData);
 
 export const signIn = (formData) => API.post("/user/signin", formData);
 export const signUp = (formData) => API.post("/user/signup", formData);
