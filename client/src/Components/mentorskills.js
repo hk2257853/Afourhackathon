@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as api from "../api"
 import Skillcard from "./Skillcard";
+import MentorSkillCard from "./MentorSkillCard";
 import Paggination from "./paggination";
 import { useLocation } from "react-router";
 // TODO: should I combine userskills n mentorskills??
@@ -72,10 +73,9 @@ function Userskills() {
 
   const deleteSkill = (id) => {
     let ans = window.confirm("Are you sure you want to delete?");
-    const newskillData = skilldata.filter((skill) => {return skill._id != id});
+    const newskillData = skilldata.filter((skill) => {return skill._id != id}); // TODO: delete once I get response from server... just do res = api.deleteUserSkill(id)
     setskilldata(newskillData);
   
-
     if (ans){
         if(location.pathname == "/uskilldata")
         {
@@ -95,6 +95,20 @@ function Userskills() {
         }
     }
 
+  }
+
+  const updatePost = (id, updateddata) => {
+    // api.updatePost(id, updateddata);
+    try {
+      if(location.pathname ==="/mentordata") api.updatePost(id, updateddata);
+      else api.updateUserSkill(id, updateddata);
+      // RESEARCH: if I directly update the state things will be easier... do directly here... just make a note n discuss with the hackathon guy b4 final sub
+      // so react is faster if we set a new state in place of mutating the old state?
+      const newskillData = skilldata.map((skill) => {return skill._id == id ? updateddata : skill});
+      setskilldata(newskillData);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -122,7 +136,8 @@ function Userskills() {
             }).map((skilldata) => {
               return (
                 <>
-                  <Skillcard key={skilldata._id} props={skilldata} deleteSkill={deleteSkill} />
+                  {location.pathname === "/uskilldata" &&<Skillcard key={skilldata._id} props={skilldata} deleteSkill={deleteSkill} updatePost={updatePost} />}
+                  {location.pathname === "/mentordata" &&<MentorSkillCard key={skilldata._id} props={skilldata} deleteSkill={deleteSkill} updatePost={updatePost} />}
                 </>
               )
             })
