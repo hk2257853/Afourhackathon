@@ -18,7 +18,8 @@ app.use("/mentor", mentorRoutes);
 app.use("/user", userRoutes);
 app.use("/userskill", userSkillRoutes);
 
-const CONNECTION_URL = "mongodb://0.0.0.0:27017/Hackathon";
+// const CONNECTION_URL = "mongodb://0.0.0.0:27017/ Hackathon"; // for non-dockerized app
+const CONNECTION_URL = "mongodb://mongo:27017/HackathonDB"; // for dockerized app
 
 mongoose
   .connect(CONNECTION_URL)
