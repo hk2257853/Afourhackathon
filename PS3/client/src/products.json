@@ -1,0 +1,72 @@
+[
+    {
+        "SkillID": 1,
+        "Domain": "Technology",
+        "SkillName": "Web Development",
+        "SkillLevel": "Basic",
+        "YearsOfExperience": 2
+    },
+    {
+        "SkillID": 2,
+        "Domain": "Business",
+        "SkillName": "Finance",
+        "SkillLevel": "Basic",
+        "YearsOfExperience": 1
+    },
+    {
+        "SkillID": 3,
+        "Domain": "Technology",
+        "SkillName": "Application Development",
+        "SkillLevel": "Intermediate",
+        "YearsOfExperience": 1.5
+    },
+    {
+        "SkillID": 4,
+        "Domain": "Project Management",
+        "SkillName": "Agile Development",
+        "SkillLevel": "Expert",
+        "YearsOfExperience": 2
+    },
+    {
+        "SkillID": 5,
+        "Domain": "Technology",
+        "SkillName": "Web Development",
+        "SkillLevel": "Expert",
+        "YearsOfExperience": 10
+    },
+    {
+        "SkillID": 6,
+        "Domain": "Business",
+        "SkillName": "Finance",
+        "SkillLevel": "Basic",
+        "YearsOfExperience": 3
+    },
+    {
+        "SkillID": 7,
+        "Domain": "Project Management",
+        "SkillName": "Agile Development",
+        "SkillLevel": "Expert",
+        "YearsOfExperience": 9
+    },
+    {
+        "SkillID": 8,
+        "Domain": "Project Management",
+        "SkillName": "Agile Development",
+        "SkillLevel": "Intermediate",
+        "YearsOfExperience": 9
+    },
+    {
+        "SkillID": 9,
+        "Domain": "Technology",
+        "SkillName": "DevOps",
+        "SkillLevel": "Basic",
+        "YearsOfExperience": 1
+    },
+    {
+        "SkillID": 10,
+        "Domain": "Business",
+        "SkillName": "Finance",
+        "SkillLevel": "Basic",
+        "YearsOfExperience": 2
+    }
+]
