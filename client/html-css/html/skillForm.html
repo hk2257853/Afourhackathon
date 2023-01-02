@@ -83,28 +83,31 @@
             <div class="skill-catalogue flex-container">
                 <h1 class="add-skill-h1">Add Skill</h1>
                 <div class="catalogue-container flex-container">
-                    <select class="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example">
-                        <option selected>Your Field</option>
-                        <option value="1">Technology</option>
-                        <option value="2">Management</option>
-                        <option value="3">Business</option>
-                      </select>
-                      <select class="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example">
-                        <option selected>Your Skill</option>
-                        <option value="1">Java</option>
-                        <option value="2">....</option>
-                        <option value="3">....</option>
-                      </select>
-                      <select class="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example">
-                        <option selected>Your Expertise Level</option>
-                        <option value="1">Basic</option>
-                        <option value="2">Intermediate</option>
-                        <option value="3">Expert</option>
-                      </select>
-                      <input type="number" class=" form-control skill-form-form-select" name="" id="" min=0 placeholder="Years of Experience">
-                      <button type="submit" class="btn btn-primary skill-form-btn skill-form-add" name="log" value="login">Add</button>
-    
-                      <button type="submit" class="btn btn-primary skill-form-btn skill-form-clear" name="log" value="logout">Clear</button>
+                  <form action="" class="needs-validation">
+                    <select class="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
+                      <option selected disabled value="">Your Field</option>
+                      <option value="1">Technology</option>
+                      <option value="2">Management</option>
+                      <option value="3">Business</option>
+                    </select>
+                    <select class="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
+                      <option selected disabled value="">Your Skill</option>
+                      <option value="1">Java</option>
+                      <option value="2">....</option>
+                      <option value="3">....</option>
+                    </select>
+                    <select class="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
+                      <option selected disabled value="">Your Expertise Level</option>
+                      <option value="1">Basic</option>
+                      <option value="2">Intermediate</option>
+                      <option value="3">Expert</option>
+                    </select>
+                    <input type="number" class=" form-control skill-form-form-select" name="" id="" min=0 placeholder="Years of Experience" required>
+                    <button type="submit" class="btn btn-primary skill-form-btn skill-form-add" name="log" value="login">Add</button>
+  
+                    <button type="submit" class="btn btn-primary skill-form-btn skill-form-clear" name="log" value="logout">Clear</button>
+                  </form>
+
                 </div>
             </div>
         </div>
