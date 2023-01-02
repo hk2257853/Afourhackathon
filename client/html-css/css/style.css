@@ -8,7 +8,8 @@ html{
 body{
     font-size: 14px;
     font-size: 1.4rem;
-    background: #d6e8f9;
+    background-image: linear-gradient(300deg, white 10%, #0093E9 100%);
+    overflow-x: auto;
 }
 .login-grp:focus{
     outline: none;
@@ -25,6 +26,15 @@ body{
     font-size: 1.8rem;
     padding-left: 1rem;
 }
+
+/* offcanvas navbar TYPE 2 NAV*/
+#offcanvasNavbar{
+    width: 30%;
+    background-image: linear-gradient(135deg, white 50%, #0093E9 100%);
+}
+
+/* normal navbar TYPE 1 NAV*/
+
 nav{
     position: absolute;
     height: 6vh;
@@ -33,6 +43,9 @@ nav{
     text-align: right;
     background: white;
     z-index: 2;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(-135deg, white 10%, #0093E9 100%);
+    box-shadow: 1px 1px 10px black;
 }
 .nav-container{
     margin: 0;
@@ -43,12 +56,21 @@ nav{
     padding-left: 2rem;
     font-size: 2rem;
 }
+.nav-link:hover{
+    color: #0093E9;
+    text-shadow: 1px 1px 2px black;
+}
 .nav-link{
-    color: #2192FF;
-    margin-right: 1rem;
-    font-size: 1.9rem;
+    color: #000;
+    margin-bottom: 0.7rem;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px black;
     font-weight: bolder;
     padding-right: 1rem;
+    text-align: right;
+}
+.active{
+    border-bottom: 5px solid #0055a5;
 }
 .logout-btn:hover{
     background-color: red;
@@ -57,7 +79,7 @@ nav{
 .logout-btn{
     border: 0;
     font-size: 1.6rem;
-    margin-left: 2rem;
+    width: 10rem;
     text-shadow: 1px 1px 2px black;
 }
 
@@ -68,19 +90,16 @@ nav{
     align-items: center;
     justify-content: center; 
 }
-
-.main-container{
-    margin: 0;
-    height: 94vh;
-    width: 100vw;
-    overflow-x: hidden;
-}
 .login-container{
     height: 100%;
 }
 .login-inner{
     height: 80%;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
 }
 /* left */
@@ -90,8 +109,8 @@ nav{
     letter-spacing: 2px;
     text-shadow: 0.5px 0.5px 2px black;
     text-align: center;
-    margin-left: 2rem;
-    width: 100%;
+    color: white;
+    text-shadow: 1px 1px 4px black;
 }
 .login-p{
     font-size: 1.6rem;
@@ -116,15 +135,14 @@ nav{
     color: #2192FF;
     text-shadow: 1px 1px 2px black;
     font-weight: bolder;
-    position: absolute;
     top: 5%;
     width: 30rem;
     text-align: center;
     padding-bottom: 1rem;
+    margin-bottom: 4rem;
 }
 
 .login-inner form{
-    position: absolute;
     bottom: 15%;
 }
 .login-inner label{
@@ -140,13 +158,16 @@ nav{
 
 /* User Skill Form */
 .user-skill-form-main-container{
-    background-image: url("./images/doodle.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    min-height: 600px;
-    overflow-x: scroll;
-}
+    margin-top: 6vh;
+    height: 94vh;
+    width: 100vw;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
 .skill-catalogue{
     height: 70%;
     width: 30%;
@@ -156,7 +177,6 @@ nav{
     background: #f8fbff;
     box-shadow: 1px 1px 20px black;
     min-width: 250px;
-    min-height: 420px;
     overflow: hidden;
 }
 .skill-catalogue  h1{
@@ -167,8 +187,6 @@ nav{
     border-bottom: 10px solid #0055a5;
     font-size: 4.5rem;
     padding-bottom: 0.5rem;
-    /* margin-bottom: rem; */
-    /* overflow: scroll; */
 }
 .catalogue-container{
     bottom: -5%;
@@ -212,6 +230,100 @@ nav{
 }
 /* User Skill Form Ends Here*/
 
+/* mySkill Page */
+.mySkill-main{
+    margin-top: 6vh;
+    height: 94vh;
+    width: 100vw;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-65deg, rgba(255,255,255,1) 0%, rgba(0,118,210,1) 96%);
+    background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+}
+.mySkill-main h1{
+    color: white;
+    font-size: 4.5rem;
+    text-shadow: 0.5px 0.5px 10px black;
+    margin-bottom: 0.5rem;
+}
+.skill-cards-container{
+    width: 85vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+.skills-container{
+    margin-top: 15rem;
+    bottom: 0%;
+    background: blue;
+}
+.card{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25rem;
+    height: 20rem;
+    margin: 1.5rem;
+    border-radius: 15px;
+    position: relative;
+    border: 0;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.398);
+    font-weight: bold;
+}
+.card-header{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0%;
+    width: 100%;
+    height: 5rem;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+    background: #0055a5;
+    color: white;
+    border: 0;
+}
+.card-header-h1{
+    display: inline-block;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    text-align: left;
+    width: 15rem;
+    font-size: 2rem;
+    text-shadow: 0.5px 0.5px 10px black;
+}
+.icon-container{
+    display: inline-block;
+    width: 5rem;
+    margin-left: 2rem;
+}
+.icon-container i:hover{
+    transform: scale(1.2);
+}
+.icon-container i{
+    cursor: pointer;
+    margin: 0.45rem;
+}
+.list-group-item{
+    margin: 0.5rem;
+    border: 0;
+    padding: 0 2rem;
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+/* mySkill Page Ends*/
+
 /* For Responsiveness */
 @media (max-width: 1150px){
         .skill-catalogue{
@@ -221,18 +333,40 @@ nav{
             font-size: 4rem;
         }
 }
+@media (max-width: 950px){
+    .card{
+        height: 20rem;
+        width: 24rem;
+    }
+    .mySkill-main h1{
+        font-size: 3.5rem;
+    }
+    .card-header-h1{
+        font-size: 1.9rem;
+    }
+    #offcanvasNavbar{
+        width: 35%;
+    }
+}
 @media (max-width: 850px){
     .skill-catalogue{
         width: 50%;
     }
 }
 @media (max-width: 750px){
+    .login-welcome-h1{
+        font-size: 6.5rem;
+    }
     /* Skill  Form */
     .skill-catalogue{
         width: 60%;
     }
     .skill-form-form-select{
         width: 80%;
+    }
+    #offcanvasNavbar{
+        width: 45%;
+        /* background: #000; */
     }
 }
 @media (max-width: 500px){
@@ -243,8 +377,6 @@ nav{
     .magic-box{
         height: 45rem;
         width: 30rem;
-        border: 30px solid #FDFF00;
-        box-shadow: 2px 20px 200px 20px black;
         position: absolute;
         z-index: -1;
     }
@@ -281,10 +413,23 @@ nav{
         font-size: 1rem;
     }
     /* Skill Form Ends Here */
+    #offcanvasNavbar{
+        width: 60%;
+    }
 }
-/* .test-container{
-    min-height: 100vh;
-    max-width: 100vw;
-    overflow: scroll;
-    background: #000;
-} */
+@media (max-width: 400px){
+    .login-welcome-h1{
+        font-size: 5rem;
+    }
+    .magic-box{
+        height: 40rem;
+        width: 25rem;
+        position: absolute;
+        z-index: -1;
+        border: 25px solid red;
+    }
+    .login-inner{
+        min-width: 300px;
+        overflow: scroll;
+    }
+}
