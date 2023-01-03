@@ -85,7 +85,7 @@ function Navbar() {
 
                         {!user /* user exist? */ ? (
                         <div className="form-inline my-2 my-lg-0">
-                        <Link to="/auth">
+                        <Link to="/">
                            <button className='btn btn-danger'>Sign In</button>
                         </Link>
                         </div>):(
