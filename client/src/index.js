@@ -6,10 +6,10 @@ import Contact from "./Components/contactus";
 import Navbar from "./Components/navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Auth from "./Components/auth";
-import SkillForm from "./Components/SkillForm";
+import SkillForm from "./Components/userform";
 // import UskillData from "./Components/userskills"
 import Mentorform from "./Components/mentorform"
-import MentorSkills from "./Components/mentorskills"
+import MentorSkills from "./Components/skilldisplay"
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 

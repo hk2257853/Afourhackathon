@@ -87,7 +87,7 @@ function Main() {
                     {isSignup && <input onChange={handleChange} type="text" name="userName" className="form-control login-grp" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" style={{marginRight: 2 + 'em'}} required/>}
                 </div>
                 <div className="mb-3 login-inputs">
-                  <input onChange={handleChange} type="email" name="email" className="form-control login-grp" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" autoComplete="off" required/>
+                  <input onChange={handleChange} type="email" name="email" className="form-control login-grp" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required/>
                   <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3 login-input">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as api from "../api"
-import Skillcard from "./Skillcard";
-import MentorSkillCard from "./MentorSkillCard";
+import Skillcard from "./userskillcard";
+import MentorSkillCard from "./mentorskillcard";
 import Paggination from "./paggination";
 import { useLocation } from "react-router";
 import "../Components/style.css"
@@ -124,8 +124,9 @@ function Userskills() {
       </div>
 
       
-      <div className="menu-container ">
-        <div className="card-container container">
+      <div class="mySkill-main">
+        <h1>My Skills.</h1>
+        <div class="row skill-cards-container">
           {
             currentpost.filter((val) => {
               if (search === " ") {
@@ -152,7 +153,6 @@ function Userskills() {
         <div className="search-container container text-center">
         <div className="serach-bar">
           <input className="search-input" type="number" name="" id="" placeholder="data per page" min="1" max={skilldata.length} onChange={(event) => { Setpostperpage(event.target.value) }}/>
-          {/* <button type="button" className="btn btn-primary" required onClick={handleSubmit}>Submit</button> */}
         </div>
       </div>
 
