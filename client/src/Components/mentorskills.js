@@ -4,6 +4,7 @@ import Skillcard from "./Skillcard";
 import MentorSkillCard from "./MentorSkillCard";
 import Paggination from "./paggination";
 import { useLocation } from "react-router";
+import "../Components/style.css"
 // TODO: should I combine userskills n mentorskills??
 
 function Userskills() {

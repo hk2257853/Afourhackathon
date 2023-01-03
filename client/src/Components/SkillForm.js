@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
-import "./index.css"
+import "../Components/style.css"
 import * as api from "../api"
-
+// TODO: if state is empty display Select in the from
 function SkillForm() {
     const [domain, setDomain] = useState("")
     const [skill, setSkill] = useState("")
@@ -25,14 +25,18 @@ function SkillForm() {
 
     const handleChangeDomain = (e) => {
         setDomain(e.target.value)
+        // console.log(skillOption)
+        // console.log(domain)
+    }
+
+    useEffect(()=>{
         const skilloptiondata = skilldata.filter((skilldata)=>{
             return skilldata.domain === domain;
         })
         // console.log(skilloptiondata)
         setSkillOption(skilloptiondata)
-        console.log(skillOption)
-        console.log(domain)
-    }
+
+    }, [domain])
 
     const handleChangeSkill = (e) => {
         setSkill(e.target.value)
@@ -43,6 +47,14 @@ function SkillForm() {
     const handleChangeYearsOfExperience = (e) => {
         setYearsOfExperience(e.target.value)
     }
+
+    const handleReset = () => {
+        setDomain("");
+        setSkill("");
+        setSkillLevel("");
+        setYearsOfExperience("");
+    }
+
 
     useEffect(()=>{
         try {
@@ -56,30 +68,39 @@ function SkillForm() {
     }, [])
 
     return (
-        <div className="form h-1/2 mx-auto w-1/2 rounded-2xl border border-3 border-gray-800 bg-slate-100 hover:bg-gray-100">
-            <form className="flex flex-col items-center">
-                <h4 className="mt-4 font-bold text-xl italic">Enter the details</h4>
-                <select onChange = {handleChangeDomain} className="mt-8 my-6 w-64 bg-slate-100 rounded-lg p-2 md:w-1/2 hover:bg-slate:300 focus:bg-gray-200 focus:outline-blue-600 border-gray-300 border-1 border" name="domain" id="domain" >
-                    <option value="tech">Technology</option>
-                    <option value="business">Business</option>
-                    <option value="project management">Project Management</option>
-                </select>
-                <select onChange={handleChangeSkill} className="my-6 w-64 rounded-lg p-2 md:w-1/2 bg-slate-100 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" name="skill" id="skill">
-                    {
+        <div className="user-skill-form-main-container flex-container">
+            <div className="skill-catalogue flex-container">
+                <h1 className="add-skill-h1">Add Skill</h1>
+                <div className="catalogue-container flex-container">
+                  <form action="" className="needs-validation">
+                    <select defaultValue={'DEFAULT'} onChange = {handleChangeDomain} className="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
+                      <option value="DEFAULT" disabled >Your Field</option>
+                      <option value="tech">Technology</option>
+                      <option value="business">Business</option>
+                      <option value="project management">Project Management</option>
+                    </select>
+                    <select defaultValue={'DEFAULT'} onChange={handleChangeSkill} className="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
+                      <option value="DEFAULT"  disabled >Your Skill</option>
+                      {
                         skillOption.map((skill)=>{
                             return (<option key={skill._id} value={skill.skill}>{skill.skill}</option>)                            
                         })
-                    }
-                </select>
-                <select onChange={handleChangeSkillLevel} className="my-6 w-64 rounded-lg p-2 md:w-1/2 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" name="skillLevel" id="skillLevel">
-                    <option value="basic">Basic</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="expert">Expert</option>
-                </select> 
-                <input onChange={handleChangeYearsOfExperience} className="my-6 w-64 rounded-lg p-2 md:w-1/2 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" type="number" name="yearsOfExperience" id="yearsOfExperience" placeholder="Years of Experience" min="0" max="100"/>
-                <button type="button" className="py-3 px-4 my-4 text-white bg-blue-500 rounded-2xl hover:bg-blue-800" required onClick={handleSubmit}>Submit</button>
-            </form>
+                      }
+                    </select>
+                    <select defaultValue={'DEFAULT'} onChange={handleChangeSkillLevel} className="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
+                      <option value="DEFAULT" disabled >Your Expertise Level</option>
+                      <option value="basic">Basic</option>
+                      <option value="intermediate">Intermediate</option>
+                      <option value="expert">Expert</option>
+                    </select>
+                    <input onChange={handleChangeYearsOfExperience} type="number" className="form-control skill-form-form-select" name="" id="" min="0" placeholder="Years of Experience" required/>
+                    <button type="submit" onClick={handleSubmit} className="btn btn-primary skill-form-btn skill-form-add" name="log" value="login">Add</button>
+                    <button type="reset" onClick={handleReset} className="btn btn-primary skill-form-btn skill-form-clear" name="log" value="reset">Clear</button>
+                  </form>
+                </div>
+            </div>
         </div>
+
     )
 }
 

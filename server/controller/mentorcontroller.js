@@ -24,7 +24,7 @@ export const createMentorData = async (req, res) => {
   
     try {
       await newMentorData.save();
-      res.status(200).json({ message: "created successfully" });
+      res.status(200).json({ message: "Skill created successfully!" });
     } catch (error) {
       res.status(409).json({ message: error.message });
     }

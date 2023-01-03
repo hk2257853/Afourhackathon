@@ -5,6 +5,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import * as api from "../api/index.js"
 
+// TODO: if status is 200 or 201 then message logged in. In other cases message.
+
 const initialState = {
   userName: "",  
   email: "",
@@ -12,14 +14,12 @@ const initialState = {
 };
 
 const Auth = () => {
-  // state to check if the user wants to signin or signup
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState(initialState);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value }); // set the value of a particular input
-    // console.log(formData)
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const switchMode = () => {
@@ -31,8 +31,9 @@ const Auth = () => {
       api.signIn(formData)
         .then((res) => {
           const response = res.data;
+          alert(response.data)
           localStorage.setItem("profile", JSON.stringify({ response }));
-          navigate("/");
+          // navigate("/");
         });
 
     } catch (error) {
