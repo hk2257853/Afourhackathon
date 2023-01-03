@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as api from "../api"
-import Skillcard from "./userskillcard";
-import MentorSkillCard from "./mentorskillcard";
+import Skillcard from "./usercard";
+import MentorSkillCard from "./mentorcard";
 import Paggination from "./paggination";
 import { useLocation } from "react-router";
 import "../Components/style.css"
