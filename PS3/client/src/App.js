@@ -67,7 +67,7 @@ const App = () => {
 };
 export default App;
 */
-
+import "./style.css"
 import * as React from 'react';
 import { Grid, GridColumn, GridToolbar } from '@progress/kendo-react-grid';
 import { ExcelExport } from '@progress/kendo-react-excel-export';
@@ -114,6 +114,15 @@ const App = () => {
   setInterval(() => {
       // console.clear()
   }, 1000);
+  setTimeout(() => {
+    let rows = document.getElementsByClassName("k-master-row");
+    let body = document.getElementsByTagName("tbody")[0];
+    body.style.display = "flex";
+    Array.from(rows).forEach(row => {
+        row.classList.add("card");
+        row.classList.add("card-header");
+    });
+  },0.01)
   return <div>
         <ExcelExport ref={_export} />
         <Grid style={{
@@ -124,7 +133,7 @@ const App = () => {
               Export to Excel
             </button>
           </GridToolbar>
-          <GridColumn field="SkillID" title="ID" filterable={false}/>
+          {/* <GridColumn field="SkillID" title="ID" filterable={false}/> */}
           <GridColumn field="Domain" title="Domain" />
           <GridColumn field="SkillName" title="Skill Name" />
           <GridColumn field="SkillLevel" title="Skill Level" />
