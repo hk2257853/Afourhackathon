@@ -1,26 +1,22 @@
 import React from 'react'
 import "../Components/style.css"
-import { useLocation } from "react-router";
 import { useState } from 'react';
 
 function Skillcard({props, deleteSkill, updatePost}) {
-    const[isediting, setIsediting] = React.useState(false);
+    const [isediting, setIsediting] = React.useState(false);
     const [skillLevel, setSkillLevel] = useState(props.skillLevel)
     const [yearsOfExperience, setYearsOfExperience] = useState(props.yearsOfExperience)
 
     const editSkill = () => {        
         if(isediting)
         {
-            // TODO: shouldn't modfity props directly
             props.skillLevel = skillLevel;
-            props.yearsOfExperience = yearsOfExperience;
-            // need an updated object with all the props and the new values
+            props.yearsOfExperience = yearsOfExperience;            
             const updatedSkill = { ...props, skillLevel, yearsOfExperience }
             updatePost(props._id, updatedSkill);
             setIsediting(false);
         }
         else setIsediting(true);
-        // TODO: 
     }
 
     const handleDelete = () =>{
@@ -47,13 +43,13 @@ function Skillcard({props, deleteSkill, updatePost}) {
           <ul class="list-group list-group-flush">
             <li class="list-group-item" style={{marginTop: 5 + 'em'}}>Technology</li>
             {isediting &&
-              <select onChange={handleChangeSkillLevel} className="my-6 w-64 rounded-lg p-2 md:w-1/2 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" name="skillLevel" id="skillLevel">
+              <select onChange={handleChangeSkillLevel} className="my-6 w-64 rounded-lg p-2 md:w-1/2 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" name="skillLevel" id="skillLevel" value={skillLevel}>
                   <option value="basic">Basic</option>
                   <option value="intermediate">Intermediate</option>
                   <option value="expert">Expert</option>
               </select> 
               }
-              {isediting && <input onChange={handleChangeYearsOfExperience} className="my-6 w-64 rounded-lg p-2 md:w-1/2 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" type="number" name="yearsOfExperience" id="yearsOfExperience" placeholder="Years of Experience" min="0" max="100"/>}
+              {isediting && <input onChange={handleChangeYearsOfExperience} className="my-6 w-64 rounded-lg p-2 md:w-1/2 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" type="number" name="yearsOfExperience" id="yearsOfExperience" placeholder="Years of Experience" min="0" max="100" value={yearsOfExperience}/>}
             {!isediting && <li class="list-group-item">{props.skillLevel}</li>}
             {!isediting && <li class="list-group-item">{props.yearsOfExperience} <span>yrs.</span></li>}
           </ul>

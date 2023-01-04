@@ -6,7 +6,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import * as api from "../api/index.js"
 import "../Components/style.css"
 
-// TODO: if status is 200 or 201 then message logged in. In other cases message.
+// TODO: hide login form if hes signed in n show someting else. like a let's begin button that will take to form ig
+// TODO: add validation
 
 const initialState = {
     userName: "",  
@@ -29,38 +30,39 @@ function Main() {
     };
   
     const signin = (formData, navigate) => {
-      try {      
-        api.signIn(formData)
-          .then((res) => {
-            const response = res.data;
-            alert(response.data)
-            localStorage.setItem("profile", JSON.stringify({ response }));
-            // navigate("/");
-          });
-  
-      } catch (error) {
-        console.log(error);
-      }
+      api.signIn(formData)
+        .then((res) => {
+          const response = res.data;
+          console.log(response)
+          alert("Logged in successfully!")
+          localStorage.setItem("profile", JSON.stringify({ response }));
+          navigate("/");
+        })
+        .catch(error => {
+        console.log(error)
+        alert(error.response.data.message);
+        });
     };
   
     const signup = (formData, navigate) => {
-      try {      
-        api.signUp(formData)
-          .then((res) => {
-            const response = res.data;
-            localStorage.setItem("profile", JSON.stringify({ response }));
-            navigate("/");
-          });
-      } catch (error) {
-        console.log(error);
-      }
+      api.signUp(formData)
+        .then((res) => {
+          const response = res.data;
+          alert("Account created successfully!")
+          localStorage.setItem("profile", JSON.stringify({ response }));
+          navigate("/");
+        })
+        .catch(error => {
+          console.log(error)
+          alert(error.response.data.message);
+        });
     };    
   
     const handleSubmit = (e) => {
       e.preventDefault();
   
       if (isSignup) {         
-        signup(formData, navigate); // send input data in the database. navigate to navigate once something happens
+        signup(formData, navigate);
       } else {
         signin(formData, navigate);
       }
@@ -97,7 +99,7 @@ function Main() {
                 <div>
                 <h5 style={{marginRight: 2 + 'em'}}>Who are you?</h5>
                 <div className="form-check">
-                    <input onChange={handleChange} className="form-check-input" type="radio" name="uType" id="userType" value="user" defaultChecked/>
+                    <input onChange={handleChange} className="form-check-input" type="radio" name="uType" id="userType" value="user"/>
                     <label className="form-check-label" htmlFor="flexRadioDefault2" style={{fontSize: 1.5 + 'em'}}>
                       User
                     </label>

@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import "../Components/style.css"
 import * as api from "../api"
-// TODO: if state is empty display Select in the from
+
 function SkillForm() {
     const [domain, setDomain] = useState("")
     const [skill, setSkill] = useState("")
@@ -13,29 +13,27 @@ function SkillForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        try {
-            const userSkill = {domain, skill, skillLevel, yearsOfExperience}
-            // console.log(userSkill);
-            api.createUserSkill(userSkill)
-        } catch (error) {
-            console.log(error.message);
-        }
+        const userSkill = {domain, skill, skillLevel, yearsOfExperience}
+        api.createUserSkill(userSkill)
+        .then((res) => {
+            alert("Skill created successfully!")
+        })
+        .catch(error => {
+            console.log(error)
+            alert("Something went wrong, Please try again later");
+          });
 
     }
 
     const handleChangeDomain = (e) => {
         setDomain(e.target.value)
-        // console.log(skillOption)
-        // console.log(domain)
     }
 
     useEffect(()=>{
         const skilloptiondata = skilldata.filter((skilldata)=>{
             return skilldata.domain === domain;
         })
-        // console.log(skilloptiondata)
         setSkillOption(skilloptiondata)
-
     }, [domain])
 
     const handleChangeSkill = (e) => {
