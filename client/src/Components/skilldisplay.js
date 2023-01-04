@@ -18,7 +18,7 @@ function Userskills() {
   const indexoffirstpost = indexoflastpost - postperpage;
 
   const currentpost = skilldata.slice(indexoffirstpost, indexoflastpost);
-  // console.log(currentpost)
+
   const pagginate = (num) => {
     Setcurrentpage(num);
   }
@@ -46,26 +46,22 @@ function Userskills() {
   useEffect(() => {
     if(location.pathname ==="/mentordata")
     {
-      try {
-        api.getMentorDatas()
-          .then((res) => {
-              // console.log(res.data)
-              setskilldata(res.data);
-          });
-      } catch (error) {
-        console.log(error.message);
-      }
+      api.getMentorDatas()
+        .then((res) => {
+            setskilldata(res.data);
+      })
+      .catch(error => {
+        console.log(error)          
+      });
   }
   else{
-    try {
-      api.getUserSkill()
-      .then((res) => {
-            // console.log(res.data)
-            setskilldata(res.data);
-        });
-    } catch (error) {
-      console.log(error.message);
-    }
+    api.getUserSkill()
+    .then((res) => {
+          setskilldata(res.data);
+    })
+    .catch(error => {
+      console.log(error)          
+    });;
 
   }
 
@@ -80,19 +76,17 @@ function Userskills() {
 
         if(location.pathname === "/uskilldata")
         {
-            try {
-                api.deleteUserSkill(id)
-            } catch (error) {
-                console.log(error)
-            }                
+            api.deleteUserSkill(id)
+            .catch(error => {
+              console.log(error)
+            });          
         }
         else
         {
-            try {
-                api.deleteMentorData(id);
-            } catch (error) {
-                console.log(error)
-            }
+            api.deleteMentorData(id)
+            .catch(error => {
+              console.log(error)          
+            });
         }
     }
 
@@ -101,7 +95,13 @@ function Userskills() {
   const updatePost = (id, updateddata) => {
     try {
       if(location.pathname ==="/mentordata") api.updatePost(id, updateddata);
-      else api.updateUserSkill(id, updateddata);
+      else 
+      {
+        api.updateUserSkill(id, updateddata)
+        .catch(error => {
+          console.log(error)
+        });
+      }
       // RESEARCH: if I directly update the state things will be easier... do directly here... just make a note n discuss with the hackathon guy b4 final sub
       // so react is faster if we set a new state in place of mutating the old state?
       const newskillData = skilldata.map((skill) => {return skill._id === id ? updateddata : skill});
@@ -113,7 +113,6 @@ function Userskills() {
 
   return (
     <>
-    {/* {TODO: replace this bootrap with tailwind} */}
     <div className="search-container container text-center">
         <div className="serach-bar">
           <input onChange={(event) => { setSearchbarData(event.target.value) }} type="search-input" className="" name="" id="" placeholder="Search Skill" required/>

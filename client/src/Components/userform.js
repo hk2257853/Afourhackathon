@@ -21,7 +21,7 @@ function SkillForm() {
         .catch(error => {
             console.log(error)
             alert("Something went wrong, Please try again later");
-          });
+        });
 
     }
 
@@ -55,14 +55,13 @@ function SkillForm() {
 
 
     useEffect(()=>{
-        try {
-            api.getMentorDatas()
-          .then((res) => {
-              setSkillData(res.data);              
-          });
-        } catch (error) {
-            console.log(error)
-        }
+        api.getMentorDatas()
+        .then((res) => {
+            setSkillData(res.data)
+        .catch(error => {
+          console.log(error)
+          });       
+        });
     }, [])
 
     return (
