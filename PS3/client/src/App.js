@@ -73,14 +73,18 @@ import { Grid, GridColumn, GridToolbar } from '@progress/kendo-react-grid';
 import { ExcelExport } from '@progress/kendo-react-excel-export';
 import products from './products.json';
 import { filterBy } from '@progress/kendo-data-query';
-import axios from 'axios';
+import * as api from "./api"
 
 const App = () => {
   const [data, setData] = React.useState(products);
   const [filter, setFilter] = React.useState();
 
-  React.useEffect(() => {
-    axios.get('http://localhost:1300/mentor')
+  // React.useEffect(() => {
+  //   console.log(user)
+  // }, [user]);
+
+  React.useEffect(() => {    
+    api.getUserSkill()
     .then((response) => {
       console.log(response.data);
       // setData(response.data);
