@@ -73,10 +73,23 @@ import { Grid, GridColumn, GridToolbar } from '@progress/kendo-react-grid';
 import { ExcelExport } from '@progress/kendo-react-excel-export';
 import products from './products.json';
 import { filterBy } from '@progress/kendo-data-query';
+import axios from 'axios';
 
 const App = () => {
   const [data, setData] = React.useState(products);
   const [filter, setFilter] = React.useState();
+
+  React.useEffect(() => {
+    axios.get('http://localhost:1300/mentor')
+    .then((response) => {
+      console.log(response.data);
+      // setData(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }, []);
+  
   const filterChange = event => {
     setData(filterBy(products, event.filter));
     setFilter(event.filter);
@@ -95,7 +108,7 @@ const App = () => {
     })
   }, 10);
   setInterval(() => {
-      console.clear()
+      // console.clear()
   }, 1000);
   return <div>
         <ExcelExport ref={_export} />

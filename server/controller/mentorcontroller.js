@@ -5,8 +5,8 @@ import mongoose from "mongoose";
 const router = express.Router();
 
 export const getMentorDatas = async (req, res) => {
-  try {
-    const mentorData = await MentorData.find({});
+  try {    
+    const mentorData = await MentorData.find({}); // all mentors should be able to c all skills
     // console.log(AdminItem);
     res.status(200).json(mentorData);
   } catch (error) {

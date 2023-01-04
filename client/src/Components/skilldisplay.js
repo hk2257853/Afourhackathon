@@ -71,12 +71,13 @@ function Userskills() {
     let ans = window.confirm("Are you sure you want to delete?");
   
     if (ans){
-        const newskillData = skilldata.filter((skill) => {return skill._id !== id}); // TODO: delete once I get response from server... just do res = api.deleteUserSkill(id)
-        setskilldata(newskillData);
-
         if(location.pathname === "/uskilldata")
         {
             api.deleteUserSkill(id)
+            .then((res) => {
+              const newskillData = skilldata.filter((skill) => {return skill._id !== id});
+              setskilldata(newskillData);
+            })
             .catch(error => {
               console.log(error)
             });          
@@ -84,6 +85,10 @@ function Userskills() {
         else
         {
             api.deleteMentorData(id)
+            .then((res) => {
+              const newskillData = skilldata.filter((skill) => {return skill._id !== id});
+              setskilldata(newskillData);
+            })
             .catch(error => {
               console.log(error)          
             });
