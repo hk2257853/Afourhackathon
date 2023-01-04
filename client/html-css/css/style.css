@@ -400,7 +400,88 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
     }
 /* About Us Ends */
 /* Contact Us Starts */
-
+.contact-main{
+    margin: 0;padding: 0;
+    margin-top: 6vh;
+    min-height: 94vh;
+    overflow-x: hidden;
+}
+.contact-row{
+    margin: 0;padding: 0;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-row div{
+    /* border: 2px solid blue; */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+.contact-content{
+    margin: 0;padding: 0;
+    height: 75%;
+    width: 80%;
+    /* background: #000; */
+    border: 2px solid black;
+}
+.contact-left{
+    padding: 0;
+    height: 94vh;
+    /* background: #000; */
+}
+.cc-left{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    overflow: hidden;
+}
+.cc-left h1{
+    position: absolute;
+    top: 2%;
+    color: red;
+}
+.icon-package{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: red;
+}
+.icon-package i{
+    margin-bottom: 1rem;
+}
+.contact-ball{
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background: white;
+    bottom: -30px;
+    right: -30px;
+    border-radius: 50%;
+}
+.contact-right{
+    padding: 0;
+    height: 94vh;
+    background: red;
+}
+.cc-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cc-right textarea{
+    display: block;
+    width: 100%;
+    background: blue;
+}
 /* Contact Us Ends */
 
 /* For Responsiveness */
