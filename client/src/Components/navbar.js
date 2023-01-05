@@ -35,11 +35,9 @@ function Navbar() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light">
-                <div className="container-fluid">
-                    <div className="">
-                        logo
-                    </div>
-
+                <div className="container-fluid">                
+                <i className=" bi bi-door-open fa-5x"></i>
+                
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
