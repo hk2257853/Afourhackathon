@@ -15,7 +15,7 @@
 </head>
 <body>
     <nav class="navbar bg-body-tertiary fixed-top">
-        <div class="container-fluid" >
+        <div class="nav-bg container-fluid">
           <a class="navbar-brand" href="#">LOGO</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -29,19 +29,19 @@
 
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " aria-current="page" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link nav-link" aria-current="page" href="#">Contact Us</a>
+                  <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="#">MySkills</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link nav-link" aria-current="page" href="#"><button type="submit" class="btn btn-success logout-btn">Add Skill</button></a>
+                  <a class="nav-link" aria-current="page" href="#"><button type="submit" class="btn btn-success logout-btn">Add Skill</button></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link nav-link" aria-current="page" href="#"><button type="submit" class="btn btn-danger logout-btn">Logout</button></a>
@@ -52,11 +52,17 @@
         </div>
       </nav>
 
-    <div class="contact-main">
+    <div class="contact-main flex-container">
+      <h1>Contact Us.</h1>
+      <h3>We would really love to hear from you.</h3>
         <div class="row contact-row">
-            <div class="col-sm-5 contact-left flex-container">
+            <div class="col-md-6 contact-left">
                 <div class="contact-content cc-left">
-                    <h1>Let's Get In Touch</h1>
+                  <div class="cc-left-h1-container">
+                    <!-- <h1>Let's</h1> -->
+                    <!-- <h1>Get In Touch.</h1> -->
+                  </div>
+
                     <div class="logo-container"></div>
                     <div class="contacts-container">
                         <div class="icon-package">
@@ -69,15 +75,30 @@
                     <div class="contact-ball"></div>
                 </div>
             </div>
-            <div class="col-md-7 contact-right flex-container">
+            <div class="col-md-6 contact-right">
                 <div class="contact-content cc-right">
-                    <h1>We'd Love to hear from you</h1>
-                    <div class="contact-input-form">
-                        <input type="text" name="" id="" required>
-                        <input type="email" name="" id="" required>
-                        <textarea name="" id=""  required></textarea>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </div>
+                    <!-- <h1>We'd Love to hear from you.</h1> -->
+                    <form action="">
+                      <div class="contact-input-form">
+                        <div class="input-group mb-3" >
+                          <input type="text" class="form-control contact-grp" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" style="margin-bottom:2rem;" required>
+                        </div>
+                      <div class="mb-3 login-inputs">
+                        <input type="email" class="form-control contact-grp" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" autocomplete="off" required>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      </div>
+                      <div class="mb-3 login-inputs">
+                        <input type="tel" class="form-control contact-grp"placeholder="Phone No." autocomplete="off" required>
+                        <div class="form-text">We'll never share your contact no. with anyone else.</div>
+                      </div>
+                      <div class="mb-3">
+                        <!-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> -->
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Your Message"></textarea>
+                      </div>
+                          <button type="submit" class="btn btn-primary">Send Message</button>
+                      </div>
+                    </form>
+
                 </div>
             </div>
 
