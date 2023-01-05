@@ -5,8 +5,8 @@ import mongoose from "mongoose";
 const router = express.Router();
 
 export const getMentorDatas = async (req, res) => {
-  try {
-    const mentorData = await MentorData.find({});
+  try {    
+    const mentorData = await MentorData.find({}); // all mentors should be able to c all skills
     // console.log(AdminItem);
     res.status(200).json(mentorData);
   } catch (error) {
@@ -24,7 +24,7 @@ export const createMentorData = async (req, res) => {
   
     try {
       await newMentorData.save();
-      res.status(200).json({ message: "created successfully" });
+      res.status(200).json({ message: "Skill created successfully!" });
     } catch (error) {
       res.status(409).json({ message: error.message });
     }

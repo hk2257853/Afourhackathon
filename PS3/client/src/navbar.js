@@ -49,43 +49,16 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0" id="items">
                             <li className="nav-item">
-                                <Link to="/" className="nav-link active">Home</Link>
-                            </li>
-                            {                                
-                                user?.response.result.utype === "user" &&
+                                <Link to="/home" className="nav-link active">Home</Link>
+                            </li>                            
                             <li className="nav-item">
-                                <Link to="/uskilldata" className="nav-link active">Myskills</Link>
-                            </li>
-                            }
-                            {                                
-                                user?.response.result.utype === "admin" &&
-                            <li className="nav-item">
-                                <Link to="/mentordata" className="nav-link active">skills</Link>
-                            </li>
-                            }
-                            <li className="nav-item">
-                                <Link to="/aboutus" className="nav-link active">About us</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/contactus" className="nav-link active">Contactus</Link>
-                            </li>
-                            {                                
-                                user?.response.result.utype === "user" &&
-                            <li className="nav-item">
-                                <Link to="/skillform" className="nav-link active">Skillform</Link>
-                            </li>
-                            }
-                            {                                
-                                user?.response.result.utype === "admin" &&
-                            <li className="nav-item">
-                                <Link to="/mentorform" className="nav-link active">Addskill</Link>
-                            </li>
-                            }
+                                <Link to="/" className="nav-link active">Skill filters</Link>
+                            </li>                            
                         </ul>
 
                         {!user /* user exist? */ ? (
                         <div className="form-inline my-2 my-lg-0">
-                        <Link to="/auth">
+                        <Link to="/">
                            <button className='btn btn-danger'>Sign In</button>
                         </Link>
                         </div>):(

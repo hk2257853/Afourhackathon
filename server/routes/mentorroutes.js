@@ -7,7 +7,7 @@ import auth from "../middleware/auth.js";
 const router = express.Router();
 
 router.post("/", auth, createMentorData);
-router.get("/", getMentorDatas); // all mentors should be able to c all skills
+router.get("/", getMentorDatas); 
 router.delete("/:id", auth, deleteMentorData);
 router.patch("/:id", auth, updateMentorData);
 

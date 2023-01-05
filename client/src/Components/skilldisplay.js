@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import * as api from "../api"
-import Skillcard from "./Skillcard";
-import MentorSkillCard from "./MentorSkillCard";
+import Skillcard from "./usercard";
+import MentorSkillCard from "./mentorcard";
 import Paggination from "./paggination";
 import { useLocation } from "react-router";
-// TODO: should I combine userskills n mentorskills??
+import "../Components/style.css"
 
 function Userskills() {
   const [skilldata, setskilldata] = useState([]);
@@ -18,7 +18,7 @@ function Userskills() {
   const indexoffirstpost = indexoflastpost - postperpage;
 
   const currentpost = skilldata.slice(indexoffirstpost, indexoflastpost);
-  // console.log(currentpost)
+
   const pagginate = (num) => {
     Setcurrentpage(num);
   }
@@ -30,7 +30,7 @@ function Userskills() {
 
   give a cancel search button to revert back to c skills
 
-  TODO: hide pagination part when search != " "
+  TODO: hide cancel part when search != " "
   */
   const handleSubmit = (e) => {
     Setpostperpage(skilldata.length); 
@@ -46,26 +46,22 @@ function Userskills() {
   useEffect(() => {
     if(location.pathname ==="/mentordata")
     {
-      try {
-        api.getMentorDatas()
-          .then((res) => {
-              // console.log(res.data)
-              setskilldata(res.data);
-          });
-      } catch (error) {
-        console.log(error.message);
-      }
+      api.getMentorDatas()
+        .then((res) => {
+            setskilldata(res.data);
+      })
+      .catch(error => {
+        console.log(error)          
+      });
   }
   else{
-    try {
-      api.getUserSkill()
-      .then((res) => {
-            // console.log(res.data)
-            setskilldata(res.data);
-        });
-    } catch (error) {
-      console.log(error.message);
-    }
+    api.getUserSkill()
+    .then((res) => {
+          setskilldata(res.data);
+    })
+    .catch(error => {
+      console.log(error)          
+    });;
 
   }
 
@@ -73,38 +69,47 @@ function Userskills() {
 
   const deleteSkill = (id) => {
     let ans = window.confirm("Are you sure you want to delete?");
-    const newskillData = skilldata.filter((skill) => {return skill._id != id}); // TODO: delete once I get response from server... just do res = api.deleteUserSkill(id)
-    setskilldata(newskillData);
   
     if (ans){
-        if(location.pathname == "/uskilldata")
+        if(location.pathname === "/uskilldata")
         {
-            try {
-                api.deleteUserSkill(id)
-            } catch (error) {
-                console.log(error)
-            }                
+            api.deleteUserSkill(id)
+            .then((res) => {
+              const newskillData = skilldata.filter((skill) => {return skill._id !== id});
+              setskilldata(newskillData);
+            })
+            .catch(error => {
+              console.log(error)
+            });          
         }
         else
         {
-            try {
-                api.deleteMentorData(id);
-            } catch (error) {
-                console.log(error)
-            }
+            api.deleteMentorData(id)
+            .then((res) => {
+              const newskillData = skilldata.filter((skill) => {return skill._id !== id});
+              setskilldata(newskillData);
+            })
+            .catch(error => {
+              console.log(error)          
+            });
         }
     }
 
   }
 
   const updatePost = (id, updateddata) => {
-    // api.updatePost(id, updateddata);
     try {
       if(location.pathname ==="/mentordata") api.updatePost(id, updateddata);
-      else api.updateUserSkill(id, updateddata);
+      else 
+      {
+        api.updateUserSkill(id, updateddata)
+        .catch(error => {
+          console.log(error)
+        });
+      }
       // RESEARCH: if I directly update the state things will be easier... do directly here... just make a note n discuss with the hackathon guy b4 final sub
       // so react is faster if we set a new state in place of mutating the old state?
-      const newskillData = skilldata.map((skill) => {return skill._id == id ? updateddata : skill});
+      const newskillData = skilldata.map((skill) => {return skill._id === id ? updateddata : skill});
       setskilldata(newskillData);
     } catch (error) {
       console.log(error)
@@ -113,18 +118,18 @@ function Userskills() {
 
   return (
     <>
-    {/* {TODO: replace this bootrap with tailwind} */}
     <div className="search-container container text-center">
         <div className="serach-bar">
-          <input className="search-input" type="text" name="" id="" placeholder="search" onChange={(event) => { setSearchbarData(event.target.value) }}/>
+          <input onChange={(event) => { setSearchbarData(event.target.value) }} type="search-input" className="" name="" id="" placeholder="Search Skill" required/>
           <button type="button" className="btn btn-primary" required onClick={handleSubmit}>Submit</button>
           <button type="button" className="btn btn-primary" required onClick={handleCancel}>Cancel</button>
         </div>
       </div>
 
       
-      <div className="menu-container ">
-        <div className="card-container container">
+      <div class="mySkill-main">
+      {location.pathname === "/uskilldata"? <h1>My Skills.</h1>:<h1>Skills.</h1>}        
+        <div class="row skill-cards-container">
           {
             currentpost.filter((val) => {
               if (search === " ") {
@@ -150,12 +155,12 @@ function Userskills() {
 
         <div className="search-container container text-center">
         <div className="serach-bar">
-          <input className="search-input" type="number" name="" id="" placeholder="data per page" min="1" max={skilldata.length} onChange={(event) => { Setpostperpage(event.target.value) }}/>
-          {/* <button type="button" className="btn btn-primary" required onClick={handleSubmit}>Submit</button> */}
+          <input className="" type="number" name="" id="" placeholder="cards per page" min="1" max={skilldata.length} onChange={(event) => { 
+            const newpostperpage = event.target.value;
+            if(newpostperpage > 0 && newpostperpage <= skilldata.length) Setpostperpage(event.target.value) ;
+            }}/>
         </div>
       </div>
-
-
       </div>
     </>
   );

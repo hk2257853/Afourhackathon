@@ -5,11 +5,11 @@ import About from "./Components/aboutus";
 import Contact from "./Components/contactus";
 import Navbar from "./Components/navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Auth from "./Components/auth";
-import SkillForm from "./Components/SkillForm";
+// import Auth from "./Components/auth";
+import SkillForm from "./Components/userform";
 // import UskillData from "./Components/userskills"
 import Mentorform from "./Components/mentorform"
-import MentorSkills from "./Components/mentorskills"
+import MentorSkills from "./Components/skilldisplay"
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 
@@ -21,7 +21,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/contactus" element={<Contact />} />
-        <Route path="/auth" element={<Auth />} />
+        {/* <Route path="/auth" element={<Auth />} /> */}
         <Route path="/skillform" element={<SkillForm />} />
         <Route path="/uskilldata" element={<MentorSkills/>}/>
         <Route path="/mentorform" element={<Mentorform/>}/>

@@ -1,10 +1,10 @@
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken"; // to store the user in the browser for a period of time... (else re login everytime)
+import jwt from "jsonwebtoken";
 
 import UserModal from "../models/user.js";
 
 export const signin = async (req, res) => {
-  const { email, password } = req.body; // get the email and password from the body/front end
+  const { email, password } = req.body;
 
   try {
     const existingUser = await UserModal.findOne({ email }); // check if the user exists
@@ -25,8 +25,7 @@ export const signin = async (req, res) => {
       "test",
       { expiresIn: "1h" }
     ); // info to store in token (.sign bracket part). In place of test it should be process.env.JWT_SECRET as its a secret key. Also will use this token in front end to verify the user n all
-    // console.log("backend")
-    // console.log(existingUser)
+
     res.status(200).json({ result: existingUser, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
@@ -40,7 +39,7 @@ export const signup = async (req, res) => {
     const existingUser = await UserModal.findOne({ email });
   
     if (existingUser)
-    return res.status(400).json({ message: "User already exists" });
+    return res.status(400).json({ message: "Email already exist" });
     
     const hashedPassword = await bcrypt.hash(password, 12); // 12 level of difficulty
       

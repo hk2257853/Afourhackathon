@@ -67,16 +67,33 @@ const App = () => {
 };
 export default App;
 */
-
+import "./style.css"
 import * as React from 'react';
 import { Grid, GridColumn, GridToolbar } from '@progress/kendo-react-grid';
 import { ExcelExport } from '@progress/kendo-react-excel-export';
 import products from './products.json';
 import { filterBy } from '@progress/kendo-data-query';
+import * as api from "./api"
 
 const App = () => {
   const [data, setData] = React.useState(products);
   const [filter, setFilter] = React.useState();
+
+  // React.useEffect(() => {
+  //   console.log(user)
+  // }, [user]);
+
+  React.useEffect(() => {    
+    api.getUserSkill()
+    .then((response) => {
+      console.log(response.data);
+      // setData(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }, []);
+  
   const filterChange = event => {
     setData(filterBy(products, event.filter));
     setFilter(event.filter);
@@ -95,8 +112,17 @@ const App = () => {
     })
   }, 10);
   setInterval(() => {
-      console.clear()
+      // console.clear()
   }, 1000);
+  setTimeout(() => {
+    let rows = document.getElementsByClassName("k-master-row");
+    let body = document.getElementsByTagName("tbody")[0];
+    body.style.display = "flex";
+    Array.from(rows).forEach(row => {
+        row.classList.add("card");
+        row.classList.add("card-header");
+    });
+  },0.01)
   return <div>
         <ExcelExport ref={_export} />
         <Grid style={{
@@ -107,7 +133,7 @@ const App = () => {
               Export to Excel
             </button>
           </GridToolbar>
-          <GridColumn field="SkillID" title="ID" filterable={false}/>
+          {/* <GridColumn field="SkillID" title="ID" filterable={false}/> */}
           <GridColumn field="Domain" title="Domain" />
           <GridColumn field="SkillName" title="Skill Name" />
           <GridColumn field="SkillLevel" title="Skill Level" />
