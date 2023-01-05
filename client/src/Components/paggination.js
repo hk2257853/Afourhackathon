@@ -1,24 +1,22 @@
-// import '../Css/paggination.css';
-
 const Paggination = ({ totalpost, postperpage, pagginate }) => {
     const numbers = [];
     for (let i = 1; i <= Math.ceil(totalpost / postperpage); i++) {
         numbers.push(i);
     }
-    // console.log(numbers)
+
     return (
         <>
-            <ul className="pageno">
+            <div className="row">
                 {
                     numbers.map((num) => {
                         return <>
-                                <li>
-                                    <button onClick={() => pagginate(num)}>{num}</button>
-                                </li>
+                                <div className="col m-1">
+                                    <button className="btn btn-warning" onClick={() => pagginate(num)}>{num}</button>
+                                </div>
                         </>
                     })
                 }
-            </ul>
+            </div>
         </>
     )
 }

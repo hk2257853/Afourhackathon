@@ -8,13 +8,17 @@ html{
 body{
     font-size: 14px;
     font-size: 1.4rem;
-    background-image: linear-gradient(300deg, white 10%, #0093E9 100%);
+    /* background-image: linear-gradient(300deg, white 10%, #0093E9 100%); */
     overflow-x: auto;
 }
 .login-grp:focus{
     outline: none;
     box-shadow: none;
     border-left: 8px solid #0055a5;
+}
+.formbg{
+    /* set background image */
+    background-image: url("images/doodle1.jpg");
 }
 .login-grp{
     border-radius: 0;
@@ -85,7 +89,7 @@ nav{
 
 /* Sign IN-OUT */
 .login-main-container{
-    margin-top: 6vh;
+    /* margin-top: 6vh; */
     height: 94vh;
     width: 100vw;
     overflow-x: hidden;
@@ -164,7 +168,7 @@ nav{
 
 /* User Skill Form */
 .user-skill-form-main-container{
-    margin-top: 6vh;
+    /* margin-top: 6vh; */
     height: 94vh;
     width: 100vw;
     overflow: auto;
@@ -238,18 +242,17 @@ nav{
 
 /* mySkill Page */
 .mySkill-main{
-    margin-top: 6vh;
-    height: 94vh;
+    margin-top: 1.5vh;
+    /* height: 94vh; */
     width: 100vw;
     overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(-65deg, rgba(255,255,255,1) 0%, rgba(0,118,210,1) 96%);
+    /* background: linear-gradient(-65deg, rgba(255,255,255,1) 0%, rgba(0,118,210,1) 96%);
     background-color: #0093E9;
-background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
 }
 .mySkill-main h1{
     color: white;
@@ -259,13 +262,13 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 }
 .skill-cards-container{
     width: 85vw;
-    height: 80vh;
+    /* height: 80vh; */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: auto;
-    padding: 2rem;
-    margin-top: 1rem;
+    /* padding: 2rem; */
+    /* margin-top: 1rem; */
 }
 .skills-container{
     margin-top: 15rem;

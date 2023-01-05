@@ -1,8 +1,10 @@
+// import "../Components/style.css"
+
 function contact() {
   return (
   <div>      
 
-    <div class="bg-white py-5">
+    <div class="py-5">
       <div class="container py-5">
         <div class="row align-items-center mb-5">
           <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
