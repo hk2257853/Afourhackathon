@@ -23,7 +23,7 @@ const ContactUs = () => {
 
   return (
     <>
-      <div className="contactbg h-100 d-flex justify-content-center align-items-center">
+      <div className="contactbg d-flex justify-content-center align-items-center">
         <div className="container mt-5">
           <div className="row">
             <div className="col-lg-10 offset-lg-1 h-100 d-flex align-items-center justify-content-center">
