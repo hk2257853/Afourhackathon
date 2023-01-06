@@ -9,15 +9,12 @@ function Navbar() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    // const user = false;
     useEffect(
         () => {            
-        //   to refresh on login
           const token = user?.response.token;
-        //   console.log(user.response.result.utype)
+
           if (token) {
               const decodedToken = decode(token);              
-              //console.log(decodedToken.exp)
               if (decodedToken.exp * 1000 < new Date().getTime()) {
               logout();
             }
@@ -60,13 +57,7 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link to="/mentordata" className="nav-link active">skills</Link>
                             </li>
-                            }
-                            <li className="nav-item">
-                                <Link to="/aboutus" className="nav-link active">About us</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/contactus" className="nav-link active">Contactus</Link>
-                            </li>
+                            }                                                        
                             {                                
                                 user?.response.result.utype === "user" &&
                             <li className="nav-item">
@@ -79,6 +70,12 @@ function Navbar() {
                                 <Link to="/mentorform" className="nav-link active">Addskill</Link>
                             </li>
                             }
+                            <li className="nav-item">
+                                <Link to="/contactus" className="nav-link active">Contactus</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/aboutus" className="nav-link active">About us</Link>
+                            </li>
                         </ul>
 
                         {!user /* user exist? */ ? (

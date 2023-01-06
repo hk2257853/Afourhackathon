@@ -70,7 +70,7 @@ function Main() {
       
     return (
     <>
-    <div className="row login-main-container">
+    <div className="row login-main-container formbg">
         <div className="col-lg-6 login-left-container login-container flex-container">
             <div className="login-inner login-inner-welcome">
             <div className="magic-box"></div>
@@ -115,7 +115,7 @@ function Main() {
                 <button type="submit" onClick={handleSubmit} className="btn btn-primary login-btn">{isSignup ? "Sign Up" : "Sign In"}</button>
               </form>
             </div>
-            <h6 className="test">
+            <h6 className="haveaccount">
             {isSignup
             ? "Already Have an Account? "
             : "Don't Have an Account? "}

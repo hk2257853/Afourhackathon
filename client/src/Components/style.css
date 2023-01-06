@@ -17,7 +17,9 @@ body{
     border-left: 8px solid #0055a5;
 }
 .formbg{
-    /* set background image */
+    background-image: url("images/doodle1.jpg");
+}
+.contactbg{
     background-image: url("images/doodle1.jpg");
 }
 .login-grp{
@@ -29,6 +31,11 @@ body{
     box-shadow: none;
     font-size: 1.8rem;
     padding-left: 1rem;
+}
+
+.haveaccount{
+    background: ghostwhite;
+    font-size: 2rem;
 }
 
 /* offcanvas navbar TYPE 2 NAV*/
@@ -111,9 +118,11 @@ nav{
     align-items: center;
     justify-content: center;
     position: relative;
+    background: ghostwhite;
 }
 /* left */
 .login-welcome-h1{
+    z-index: 2;
     font-size: 7rem;
     font-weight: bolder;
     letter-spacing: 2px;
@@ -134,7 +143,7 @@ nav{
     border: 45px solid red;
     box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.508);
     position: absolute;
-    z-index: -1;
+    z-index: 1;
 }
 /* right */
 #emailHelp{
@@ -365,6 +374,7 @@ nav{
 @media (max-width: 750px){
     .login-welcome-h1{
         font-size: 6.5rem;
+        z-index: 2;
     }
     /* Skill  Form */
     .skill-catalogue{
@@ -382,12 +392,13 @@ nav{
     /* Home */
     .login-welcome-h1{
         font-size: 6rem;
+        z-index: 2;
     }
     .magic-box{
         height: 45rem;
         width: 30rem;
         position: absolute;
-        z-index: -1;
+        z-index: 1;
     }
     .login-signin-h1{
         font-size: 3.5rem;
@@ -428,17 +439,19 @@ nav{
 }
 @media (max-width: 400px){
     .login-welcome-h1{
+        z-index: 2;
         font-size: 5rem;
     }
     .magic-box{
         height: 40rem;
         width: 25rem;
         position: absolute;
-        z-index: -1;
+        z-index: 1;
         border: 25px solid red;
     }
     .login-inner{
         min-width: 300px;
         overflow: scroll;
+        background: ghostwhite;
     }
 }

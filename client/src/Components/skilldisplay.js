@@ -118,6 +118,7 @@ function Userskills() {
 
   return (
     <>
+    <div className="formbg">
     <div className="container text-center m-4">
           <input onChange={(event) => { setSearchbarData(event.target.value) }} type="search-input" className="" name="" id="" placeholder="Search Skill" required/>
           <button type="button" className="m-1 btn btn-primary p-1" required onClick={handleSubmit}><i class="bi bi-search"> Search</i></button>
@@ -136,7 +137,7 @@ function Userskills() {
       </div>      
 
       <div class="mySkill-main">
-      {location.pathname === "/uskilldata"? <h1>My Skills.</h1>:<h1>Skills.</h1>}        
+      {location.pathname === "/uskilldata"? <h1 className="rounded p-2" style={{background: "#0055a5"}}>My Skills.</h1>:<h1>Skills.</h1>}        
         <div class="row skill-cards-container">
           {
             currentpost.filter((val) => {
@@ -156,6 +157,7 @@ function Userskills() {
             })
           }
         </div>
+      </div>
       </div>
     </>
   );
