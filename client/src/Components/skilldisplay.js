@@ -118,15 +118,23 @@ function Userskills() {
 
   return (
     <>
-    <div className="search-container container text-center">
-        <div className="serach-bar">
+    <div className="container text-center m-4">
           <input onChange={(event) => { setSearchbarData(event.target.value) }} type="search-input" className="" name="" id="" placeholder="Search Skill" required/>
-          <button type="button" className="btn btn-primary" required onClick={handleSubmit}>Submit</button>
-          <button type="button" className="btn btn-primary" required onClick={handleCancel}>Cancel</button>
-        </div>
+          <button type="button" className="m-1 btn btn-primary p-1" required onClick={handleSubmit}><i class="bi bi-search"> Search</i></button>
+          <button type="button" className="close btn btn-primary p-1" required onClick={handleCancel}>× cancel</button>
       </div>
 
-      
+      <div className="container">
+          <Paggination totalpost={skilldata.length} postperpage={postperpage} pagginate={pagginate} />
+        </div>
+
+        <div className="container text-center">
+          <input className="" type="number" name="" id="" placeholder="cards per page" min="1" max={skilldata.length} onChange={(event) => { 
+            const newpostperpage = event.target.value;
+            if(newpostperpage > 0 && newpostperpage <= skilldata.length) Setpostperpage(event.target.value) ;
+            }}/>
+      </div>      
+
       <div class="mySkill-main">
       {location.pathname === "/uskilldata"? <h1>My Skills.</h1>:<h1>Skills.</h1>}        
         <div class="row skill-cards-container">
@@ -148,19 +156,6 @@ function Userskills() {
             })
           }
         </div>
-
-        <div className="paagination-section center">
-          <Paggination totalpost={skilldata.length} postperpage={postperpage} pagginate={pagginate} />
-        </div>
-
-        <div className="search-container container text-center">
-        <div className="serach-bar">
-          <input className="" type="number" name="" id="" placeholder="cards per page" min="1" max={skilldata.length} onChange={(event) => { 
-            const newpostperpage = event.target.value;
-            if(newpostperpage > 0 && newpostperpage <= skilldata.length) Setpostperpage(event.target.value) ;
-            }}/>
-        </div>
-      </div>
       </div>
     </>
   );

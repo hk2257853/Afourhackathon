@@ -37,7 +37,7 @@ function SkillForm() {
         
 
     return (
-        <div className="user-skill-form-main-container flex-container">
+        <div className="user-skill-form-main-container flex-container formbg">
         <div className="skill-catalogue flex-container">
             <h1 className="add-skill-h1">Add Skill</h1>
             <div className="catalogue-container flex-container">
