@@ -31,11 +31,9 @@ nav{
 .nav-container{
     margin: 0;
     width: 100vw;
-    background: yellow;
 }
-#offcanvasNavbar{
-    width: 30%;
-    background: #50d8c6f5;
+.navbar-nav{
+ margin-right: 1rem;
 }
 .navbar-toggler{
     margin-right: 2rem;
