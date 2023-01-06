@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+body{
+    font-size: 14px;
+    font-size: 1.4rem;
+    background: conic-gradient(from 180deg, #2FCAB5, #fff); 
+    overflow-x: hidden;
+}
+nav{
+    position: absolute;
+    height: 6vh;
+    width: 100vw;
+    right: 0;
+    text-align: right;
+    z-index: 2;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(-135deg,#22d9c1 100%, #2FCAB5 100%);
+    box-shadow: 1px 1px 10px black;
+}
+.container-fluid{
+    background-color: #FFDEE9;
+    background-image: linear-gradient(-135deg,#22d9c1 100%, #2FCAB5 100%);
+}
+.nav-container{
+    margin: 0;
+    width: 100vw;
+    background: yellow;
+}
+#offcanvasNavbar{
+    width: 30%;
+    background: #50d8c6f5;
+}
+.navbar-toggler{
+    margin-right: 2rem;
+}
+.navbar-brand{
+    padding-left: 2rem;
+    font-size: 2rem;
+}
+.nav-link:hover{
+    color: #087b6c;
+    letter-spacing: 2px;
+}
+.nav-link{
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 0.7rem;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bolder;
+    padding-right: 1rem;
+    text-align: right;
+}
