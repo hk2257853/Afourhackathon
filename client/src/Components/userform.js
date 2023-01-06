@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import "../Components/style.css"
+import "../Components/css/style.css"
 import * as api from "../api"
 import * as yup from "yup";
 

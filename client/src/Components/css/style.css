@@ -17,12 +17,12 @@ body{
     border-left: 8px solid #0055a5;
 }
 .formbg{
-    background-image: url("images/doodle1.jpg");
-    height:100vh;
+    background-image: url("../images/doodle1.jpg");
+    height:110vh;
 }
 .contactbg{
-    background-image: url("images/doodle1.jpg");
-    height:100vh;
+    background-image: url("../images/doodle1.jpg");
+    /* height:100vh; */
 }
 .login-grp{
     border-radius: 0;
