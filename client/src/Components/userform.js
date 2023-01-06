@@ -1,6 +1,14 @@
 import React,{useEffect, useState} from 'react'
 import "../Components/style.css"
 import * as api from "../api"
+import * as yup from "yup";
+
+const userFormSchema = yup.object().shape({
+    domain:yup.string().required(),
+    skill:yup.string().required(),
+    skillLevel:yup.string().required(),
+    yearsOfExperience:yup.number().min(0).max(50).required()
+})
 
 function SkillForm() {
     const [domain, setDomain] = useState("")
@@ -10,10 +18,17 @@ function SkillForm() {
     const [skillOption, setSkillOption] = useState([])
     const [skilldata, setSkillData] = useState([])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         
         const userSkill = {domain, skill, skillLevel, yearsOfExperience}
+        
+        const isValid = await userFormSchema.isValid(userSkill)
+        console.log(isValid);
+        if(!isValid){
+            alert("Please fill all the fields")
+            return;
+        }
         api.createUserSkill(userSkill)
         .then((res) => {
             alert("Skill created successfully!")
@@ -90,7 +105,7 @@ function SkillForm() {
                       <option value="intermediate">Intermediate</option>
                       <option value="expert">Expert</option>
                     </select>
-                    <input onChange={handleChangeYearsOfExperience} type="number" className="form-control skill-form-form-select" name="" id="" min="0" placeholder="Years of Experience" required/>
+                    <input onChange={handleChangeYearsOfExperience} type="number" className="form-control skill-form-form-select" name="" id="" min="0" max="50" placeholder="Years of Experience" required/>
                     <button type="submit" onClick={handleSubmit} className="btn btn-primary skill-form-btn skill-form-add" name="log" value="login">Add</button>
                     <button type="reset" onClick={handleReset} className="btn btn-primary skill-form-btn skill-form-clear" name="log" value="reset">Clear</button>
                   </form>

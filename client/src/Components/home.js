@@ -5,9 +5,17 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import * as api from "../api/index.js"
 import "../Components/style.css"
+import * as yup from "yup";
 
 // TODO: hide login form if hes signed in n show someting else. like a let's begin button that will take to form ig
 // TODO: add validation
+const signUpSchema = yup.object().shape({
+    userName:yup.string().required(),
+    email:yup.string().email().required(),
+    password:yup.string().required(),
+    uType:yup.string().required()
+})
+
 
 const initialState = {
     userName: "",  
@@ -58,11 +66,19 @@ function Main() {
         });
     };    
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
   
-      if (isSignup) {         
-        signup(formData, navigate);
+      if (isSignup) {        
+        const isValid = await signUpSchema.isValid(formData);
+        console.log(formData);
+        console.log(isValid);
+        if (isValid) {
+          signup(formData, navigate);
+        } 
+        else{
+          alert("Please fill appropriate details");
+        }
       } else {
         signin(formData, navigate);
       }
