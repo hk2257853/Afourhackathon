@@ -3,8 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // css
 import "bootstrap/dist/js/bootstrap.bundle.min"; // js
 import "bootstrap-icons/font/bootstrap-icons.css";
 import emailjs from "emailjs-com"
-import emailpic from './images/emailpic.png'
-import "../Components/style.css"
+import "../Components/css/style.css"
 
 const ContactUs = () => {
 

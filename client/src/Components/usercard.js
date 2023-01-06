@@ -1,5 +1,5 @@
 import React from 'react'
-import "../Components/style.css"
+import "../Components/css/style.css"
 import { useState } from 'react';
 
 function Skillcard({props, deleteSkill, updatePost}) {

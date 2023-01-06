@@ -4,8 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import * as api from "../api/index.js"
-import "../Components/style.css"
-
+import "../Components/css/style.css"
 // TODO: hide login form if hes signed in n show someting else. like a let's begin button that will take to form ig
 // TODO: add validation
 

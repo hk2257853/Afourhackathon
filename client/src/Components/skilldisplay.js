@@ -4,7 +4,7 @@ import Skillcard from "./usercard";
 import MentorSkillCard from "./mentorcard";
 import Paggination from "./paggination";
 import { useLocation } from "react-router";
-import "../Components/style.css"
+import "../Components/css/style.css"
 
 function Userskills() {
   const [skilldata, setskilldata] = useState([]);
