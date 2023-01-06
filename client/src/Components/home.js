@@ -5,7 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import * as api from "../api/index.js"
 import * as yup from "yup";
-import "../Components/style.css"
+import "./css/style.css"
 
 // TODO: hide login form if hes signed in n show someting else. like a let's begin button that will take to form ig
 // TODO: add validation
