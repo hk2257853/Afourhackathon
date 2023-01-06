@@ -137,7 +137,7 @@ function Userskills() {
       </div>      
 
       <div class="mySkill-main">
-      {location.pathname === "/uskilldata"? <h1 className="rounded p-2" style={{background: "#0055a5"}}>My Skills.</h1>:<h1>Skills.</h1>}        
+      {location.pathname === "/uskilldata"? <h1 className="rounded p-2" style={{background: "#0055a5"}}>My Skills</h1>:<h1 className="rounded p-2" style={{background: "#0055a5"}}>Skills</h1>}        
         <div class="row skill-cards-container">
           {
             currentpost.filter((val) => {

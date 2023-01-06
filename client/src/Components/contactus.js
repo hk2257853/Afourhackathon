@@ -7,6 +7,7 @@ import emailpic from './images/emailpic.png'
 import "../Components/style.css"
 
 const ContactUs = () => {
+
   function handleOnSubmit(e)
   {
     e.preventDefault();
@@ -23,60 +24,19 @@ const ContactUs = () => {
 
   return (
     <>
-      <div className="contactbg h-100 d-flex justify-content-center align-items-center">
-        <div className="container mt-5">
-          <div className="row">
-            <div className="col-lg-10 offset-lg-1 h-100 d-flex align-items-center justify-content-center">
-              <div className="">
-                <div className="row">
-                  <div className="col-md-7 pe-0">
-                    <div className="form-left h-100 py-5 px-5">
-                      <form action="" className="row g-4"  onSubmit={handleOnSubmit}>
-                        <h3 className="m">Send Us a Message</h3>
-                        <div className="col-12">
-                          <label>Subject</label>
-                          <div className="input-group">                            
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Enter Subject"
-                              name="subject"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="col-12">
-                          <label>Message</label>
-                          <div className="input-group">
-                            <textarea
-                              className="form-control textarea-size"
-                              placeholder="Enter Message"
-                              name="message"
-                            ></textarea>
-                          </div>
-                        </div>
-
-                        <div className="col-12">
-                          <input
-                            type="submit"
-                            className="btn btn-primary px-4 float-end"                            
-                          >                            
-                          </input>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div className="col-md-5 ps-0 d-none d-md-block">
-                    <div className="form-right h-100 text-white text-center pt-5">
-                      <img src={emailpic}></img>
-                    </div>
-                  </div>
+        <div className="user-skill-form-main-container flex-container formbg">
+            <div className="skill-catalogue flex-container">
+                <h1 className="add-skill-h1">Send Us a Message</h1>
+                <div className="catalogue-container flex-container">
+                  <form action="" onSubmit={handleOnSubmit} className="needs-validation">
+                    <input type="text" className=" skill-form-form-select" name="subject" placeholder="Enter Subject" required/>
+                    <textarea type="text" className=" skill-form-form-select" name="message" placeholder="Enter Message" required/>
+                    <input type="submit" className="btn btn-primary skill-form-btn skill-form-add"/>
+                    <input type="reset" className="btn btn-primary skill-form-btn skill-form-clear"/>
+                  </form>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </>
   );
 };
