@@ -8,7 +8,6 @@ import * as yup from "yup";
 import "./css/style.css"
 
 // TODO: hide login form if hes signed in n show someting else. like a let's begin button that will take to form ig
-// TODO: add validation
 const signUpSchema = yup.object().shape({
     userName:yup.string().required(),
     email:yup.string().email().required(),
@@ -16,17 +15,10 @@ const signUpSchema = yup.object().shape({
     uType:yup.string().required()
 })
 
-
-const initialState = {
-    userName: "",  
-    email: "",
-    password: "", 
-  };
-  
 function Main() {
 
     const [isSignup, setIsSignup] = useState(false);
-    const [formData, setFormData] = useState(initialState);
+    const [formData, setFormData] = useState();
     const navigate = useNavigate();
   
     const handleChange = (e) => {
@@ -41,10 +33,11 @@ function Main() {
       api.signIn(formData)
         .then((res) => {
           const response = res.data;
-          console.log(response)
+          // console.log(response)
           alert("Logged in successfully!")
           localStorage.setItem("profile", JSON.stringify({ response }));
-          navigate("/");
+          if(response.result.utype === "user") navigate("/uskilldata");
+          else navigate("/mentordata");
         })
         .catch(error => {
         console.log(error)
@@ -58,7 +51,8 @@ function Main() {
           const response = res.data;
           alert("Account created successfully!")
           localStorage.setItem("profile", JSON.stringify({ response }));
-          navigate("/");
+          if(formData.uType === "user") navigate("/uskilldata");
+          else navigate("/mentordata");
         })
         .catch(error => {
           console.log(error)
@@ -71,8 +65,8 @@ function Main() {
   
       if (isSignup) {        
         const isValid = await signUpSchema.isValid(formData);
-        console.log(formData);
-        console.log(isValid);
+        // console.log(formData);
+        // console.log(isValid);
         if (isValid) {
           signup(formData, navigate);
         } 
