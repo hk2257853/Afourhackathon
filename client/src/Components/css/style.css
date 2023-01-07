@@ -8,7 +8,7 @@ html{
 body{
     font-size: 14px;
     font-size: 1.4rem;
-    /* background-image: linear-gradient(300deg, white 10%, #0093E9 100%); */
+    background-image: linear-gradient(300deg, white 10%, #0093E9 100%);
     overflow-x: auto;
 }
 .login-grp:focus{
@@ -18,11 +18,14 @@ body{
 }
 .formbg{
     background-image: url("../images/doodle1.jpg");
-    height:110vh;
+    /* height:110vh; */
 }
 .contactbg{
     background-image: url("../images/doodle1.jpg");
     /* height:100vh; */
+}
+.aboutusbg{
+    background: white;
 }
 .login-grp{
     border-radius: 0;
@@ -77,10 +80,8 @@ nav{
     color: #000;
     margin-bottom: 0.7rem;
     font-size: 2rem;
-    text-shadow: 1px 1px 2px black;
+    /* text-shadow: 1px 1px 2px black; */
     font-weight: bolder;
-    padding-right: 1rem;
-    text-align: right;
 }
 .active{
     border-bottom: 5px solid #0055a5;

@@ -118,7 +118,7 @@ function Userskills() {
 
   return (
     <>
-    <div className="formbg">
+    <div className="">
     <div className="container text-center m-4">
           <input onChange={(event) => { setSearchbarData(event.target.value) }} type="search-input" className="" name="" id="" placeholder="Search Skill" required/>
           <button type="button" className="m-1 btn btn-primary p-1" required onClick={handleSubmit}><i class="bi bi-search"> Search</i></button>

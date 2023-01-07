@@ -29,7 +29,7 @@ const ContactUs = () => {
                 <div className="catalogue-container flex-container">
                   <form action="" onSubmit={handleOnSubmit} className="needs-validation">
                     <input type="text" className=" skill-form-form-select" name="subject" placeholder="Enter Subject" required/>
-                    <textarea type="text" className=" skill-form-form-select" name="message" placeholder="Enter Message" required/>
+                    <textarea className="skill-form-form-select form-control" name="message" placeholder="Enter Message" id="" rows="3"></textarea>
                     <input type="submit" className="btn btn-primary skill-form-btn skill-form-add"/>
                     <input type="reset" className="btn btn-primary skill-form-btn skill-form-clear"/>
                   </form>

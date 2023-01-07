@@ -1,8 +1,8 @@
-// import "../Components/style.css"
+import "../Components/css/style.css"
 
 function contact() {
   return (
-  <div>      
+  <div className="aboutusbg">      
 
     <div class="py-5">
       <div class="container py-5">

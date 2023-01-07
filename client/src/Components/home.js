@@ -86,7 +86,7 @@ function Main() {
       
     return (
     <>
-    <div className="row login-main-container formbg">
+    <div className="row login-main-container">
         <div className="col-lg-6 login-left-container login-container flex-container">
             <div className="login-inner login-inner-welcome">
             <div className="magic-box"></div>
