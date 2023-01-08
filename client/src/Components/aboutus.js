@@ -36,14 +36,14 @@ function contact() {
           <div class="col-xl-3 col-sm-6 mb-5">
             <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-3.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
               <h5 class="mb-0">Puneet Patil</h5><span class="small text-uppercase text-muted">Frontend engineer (React) </span>
-              <a href="https://harshk-portfolio.netlify.app/"  target="_blank" className="btn btn-primary"><i class="bi bi-link"></i></a>
+              <a href="https://github.com/puneetmpatil"  target="_blank" className="btn btn-primary"><i class="bi bi-link"></i></a>
             </div>
           </div>
                 
           <div class="col-xl-3 col-sm-6 mb-5">
             <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-2.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
               <h5 class="mb-0">Prateek Sharma</h5><span class="small text-uppercase text-muted">Frontend + Docker </span>
-              <a href="https://harshk-portfolio.netlify.app/"  target="_blank" className="btn btn-primary"><i class="bi bi-link"></i></a>
+              <a href="https://www.linkedin.com/in/prateek-sharma-3461b9237/"  target="_blank" className="btn btn-primary"><i class="bi bi-link"></i></a>
             </div>
           </div>
 

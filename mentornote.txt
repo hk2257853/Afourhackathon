@@ -1,4 +1,0 @@
-keep the creator part. Can give a filter later.
-we need the skills to be unique
-
-make sure PS2 matches the all requirements properly. PS1 n PS2 partially will do

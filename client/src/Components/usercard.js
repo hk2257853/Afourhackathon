@@ -41,7 +41,7 @@ function Skillcard({props, deleteSkill, updatePost}) {
             </span>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item" style={{marginTop: 5 + 'em'}}>Technology</li>
+            <li class="list-group-item" style={{marginTop: 5 + 'em'}}>{props.domain}</li>
             {isediting &&
               <select onChange={handleChangeSkillLevel} className="my-6 w-64 rounded-lg p-2 md:w-1/2 focus:outline-blue-600 border-gray-300 border-1 border focus:bg-gray-200" name="skillLevel" id="skillLevel" value={skillLevel}>
                   <option value="basic">Basic</option>

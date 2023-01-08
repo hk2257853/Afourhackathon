@@ -49,6 +49,7 @@ function SkillForm() {
             return skilldata.domain === domain;
         })
         setSkillOption(skilloptiondata)
+        setSkill("")
     }, [domain])
 
     const handleChangeSkill = (e) => {
@@ -73,10 +74,10 @@ function SkillForm() {
         api.getMentorDatas()
         .then((res) => {
             setSkillData(res.data)
+        })
         .catch(error => {
           console.log(error)
           });       
-        });
     }, [])
 
     return (
@@ -85,14 +86,14 @@ function SkillForm() {
                 <h1 className="add-skill-h1">Add Skill</h1>
                 <div className="catalogue-container flex-container">
                   <form action="" className="needs-validation">
-                    <select defaultValue={'DEFAULT'} onChange = {handleChangeDomain} className="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
-                      <option value="DEFAULT" disabled >Your Field</option>
+                    <select defaultValue={""} onChange = {handleChangeDomain} className="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
+                      <option value="" disabled >Your Field</option>
                       <option value="tech">Technology</option>
                       <option value="business">Business</option>
                       <option value="project management">Project Management</option>
                     </select>
-                    <select defaultValue={'DEFAULT'} onChange={handleChangeSkill} className="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
-                      <option value="DEFAULT"  disabled >Your Skill</option>
+                    <select defaultValue={""} onChange={handleChangeSkill} className="form-select form-select-lg mb-3 skill-form-form-select" aria-label=".form-select-lg example" id="validationDefault04" required>
+                      <option value=""  >Your Skill</option>
                       {
                         skillOption.map((skill)=>{
                             return (<option key={skill._id} value={skill.skill}>{skill.skill}</option>)                            
