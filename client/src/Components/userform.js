@@ -24,7 +24,7 @@ function SkillForm() {
         const userSkill = {domain, skill, skillLevel, yearsOfExperience}
         
         const isValid = await userFormSchema.isValid(userSkill)
-        console.log(isValid);
+        // console.log(isValid);
         if(!isValid){
             alert("Please fill all the fields")
             return;
@@ -35,7 +35,8 @@ function SkillForm() {
         })
         .catch(error => {
             console.log(error)
-            alert("Something went wrong, Please try again later");
+            if(error.response.data.message) alert(error.response.data.message);
+            else alert("Something went wrong, Please try again later");
         });
 
     }

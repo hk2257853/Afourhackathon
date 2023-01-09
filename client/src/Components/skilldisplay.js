@@ -23,12 +23,10 @@ function Userskills() {
     Setcurrentpage(num);
   }
 
-  // juggad for proper search
   /*
+  why Setcurrentpage(1)?
   issue: it was searching on the given page only
-  soln: on search show full page
-
-  give a cancel search button to revert back to c skills
+  soln: on search show full page (makes more sense too)  
 
   TODO: hide cancel part when search != " "
   */
@@ -107,8 +105,7 @@ function Userskills() {
           console.log(error)
         });
       }
-      // RESEARCH: if I directly update the state things will be easier... do directly here... just make a note n discuss with the hackathon guy b4 final sub
-      // so react is faster if we set a new state in place of mutating the old state?
+      
       const newskillData = skilldata.map((skill) => {return skill._id === id ? updateddata : skill});
       setskilldata(newskillData);
     } catch (error) {

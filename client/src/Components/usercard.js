@@ -2,6 +2,7 @@ import React from 'react'
 import "../Components/css/style.css"
 import { useState } from 'react';
 
+// deleteSkill & updateSkill are functions that are passed as props from the skilldisplay component
 function Skillcard({props, deleteSkill, updatePost}) {
     const [isediting, setIsediting] = React.useState(false);
     const [skillLevel, setSkillLevel] = useState(props.skillLevel)

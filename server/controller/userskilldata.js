@@ -7,7 +7,6 @@ const router = express.Router();
 export const getUserSkill = async (req, res) => {
   try {
     const skillData = await SkillData.find({"creator":req.userId});
-    // const skillData = await SkillData.find({});
     res.status(200).json(skillData);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -16,6 +15,11 @@ export const getUserSkill = async (req, res) => {
 
 export const createUserSkill = async (req, res) => {
     const post = req.body;
+
+    const {skill} = post;
+    const existingSkill = await SkillData.findOne({ skill });  
+    if (existingSkill)
+    return res.status(400).json({ message: "Skill already exist" });
   
     const newSkillData = new SkillData({
       ...post,

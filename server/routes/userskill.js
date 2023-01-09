@@ -1,4 +1,4 @@
-// this is for PS2
+// PS2(user) routes
 
 import express from "express";
 import { createUserSkill, getUserSkill, deleteUserSkill, updateUserSkill } from "../controller/userskilldata.js";

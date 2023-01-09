@@ -6,6 +6,6 @@ const itemSchema = mongoose.Schema({
     creator: String,
 })
 
-var AdminItem = mongoose.model("MentorData", itemSchema);
+var MentorItem = mongoose.model("MentorData", itemSchema);
 
-export default AdminItem;
+export default MentorItem;

@@ -40,7 +40,10 @@ body{
 
 .haveaccount{
     background: ghostwhite;
-    font-size: 2rem;
+    font-size: 1.4rem;
+    border-radius: 0.5em;
+    margin-top: 0.2em;
+    padding: 1rem;
 }
 
 /* offcanvas navbar TYPE 2 NAV*/
@@ -115,6 +118,18 @@ nav{
 }
 .login-inner{
     height: 80%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: ghostwhite;
+    border-radius: 2.5em;
+}
+
+.home-quote{
+    height: 80%;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -122,17 +137,19 @@ nav{
     justify-content: center;
     position: relative;
     background: ghostwhite;
+    border-radius: 2.5em;
 }
+
 /* left */
 .login-welcome-h1{
     z-index: 2;
     font-size: 7rem;
     font-weight: bolder;
     letter-spacing: 2px;
-    text-shadow: 0.5px 0.5px 2px black;
+    /* text-shadow: 0.5px 0.5px 2px black; */
     text-align: center;
-    color: white;
-    text-shadow: 1px 1px 4px black;
+    color: #2192FF;
+    /* text-shadow: 1px 1px 4px black; */
 }
 .login-p{
     font-size: 1.6rem;

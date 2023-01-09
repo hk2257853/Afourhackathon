@@ -15,7 +15,7 @@ const signUpSchema = yup.object().shape({
     uType:yup.string().required()
 })
 
-function Main() {
+function Home() {
 
     const [isSignup, setIsSignup] = useState(false);
     const [formData, setFormData] = useState();
@@ -82,21 +82,19 @@ function Main() {
     <>
     <div className="row login-main-container">
         <div className="col-lg-6 login-left-container login-container flex-container">
-            <div className="login-inner login-inner-welcome">
+            <div className="home-quote login-inner-welcome">
             <div className="magic-box"></div>
                 <h1 className="login-welcome-h1">If Oppurtunity</h1>
                 <h1 className="login-welcome-h1">does not knock,</h1>
-                <h1 className="login-welcome-h1">build a door <strong style={{color: "white", padding: 2 + "rem"}} >;</strong></h1>
-                {/* TODO: proper padding in above line: style="color: white; padding: 2rem 0;" */}
+                <h1 className="login-welcome-h1">build a door <strong style={{color: "#2192FF", padding: 2 + "rem"}} >;</strong></h1>
             </div>
         </div>
         <div className="col-lg-6 login-right-container login-container flex-container">
-        {/* <!-- SIGN UP FORM --> */}
         <div className="login-inner login-inner-form flex-container">
             <h1 className="login-signin-h1">{isSignup ? "SIGN UP" : "SIGN IN"}</h1>
             <form className="login-form">
                 <div className="input-group mb-3">
-                    {isSignup && <input onChange={handleChange} type="text" name="userName" className="form-control login-grp" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" style={{marginRight: 2 + 'em'}} required/>}
+                    {isSignup && <input onChange={handleChange} type="text" name="userName" className="form-control login-grp" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required/>}
                 </div>
                 <div className="mb-3 login-inputs">
                   <input onChange={handleChange} type="email" name="email" className="form-control login-grp" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required/>
@@ -115,9 +113,9 @@ function Main() {
                     </label>
                   </div>
                 <div className="form-check">
-                    <input onChange={handleChange} className="form-check-input" type="radio" name="uType" id="mentorType" value="admin"/>
+                    <input onChange={handleChange} className="form-check-input" type="radio" name="uType" id="mentorType" value="mentor"/>
                     <label className="form-check-label" htmlFor="flexRadioDefault1" style={{fontSize: 1.5 + 'em'}}>
-                      Admin/Mentor
+                      Mentor
                     </label>
                   </div>
                   </div>
@@ -142,4 +140,4 @@ function Main() {
     );
 }
 
-export default Main;
+export default Home;

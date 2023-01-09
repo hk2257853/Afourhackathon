@@ -1,4 +1,4 @@
-// this is for PS1
+// PS1(mentor) routes
 
 import express from "express";
 import { createMentorData, getMentorDatas, deleteMentorData, updateMentorData } from "../controller/mentorcontroller.js";

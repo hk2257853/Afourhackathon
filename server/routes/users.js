@@ -1,4 +1,4 @@
-// This part is related to auth
+// Auth routes
 
 import express from "express";
 

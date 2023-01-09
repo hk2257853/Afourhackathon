@@ -53,7 +53,7 @@ function Navbar() {
                             </li>
                             }
                             {                                
-                                user?.response.result.utype === "admin" &&
+                                user?.response.result.utype === "mentor" &&
                             <li className="nav-item">
                                 <Link to="/mentordata" className="nav-link active">skills</Link>
                             </li>
@@ -65,7 +65,7 @@ function Navbar() {
                             </li>
                             }
                             {                                
-                                user?.response.result.utype === "admin" &&
+                                user?.response.result.utype === "mentor" &&
                             <li className="nav-item">
                                 <Link to="/mentorform" className="nav-link active">Addskill</Link>
                             </li>

@@ -6,8 +6,7 @@ const router = express.Router();
 
 export const getMentorDatas = async (req, res) => {
   try {    
-    const mentorData = await MentorData.find({}); // all mentors should be able to c all skills
-    // console.log(AdminItem);
+    const mentorData = await MentorData.find({}); // all mentors should be able to see all skills
     res.status(200).json(mentorData);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -16,6 +15,11 @@ export const getMentorDatas = async (req, res) => {
 
 export const createMentorData = async (req, res) => {
     const post = req.body;
+
+    const {skill} = post;
+    const existingSkill = await MentorData.findOne({ skill });  
+    if (existingSkill)
+    return res.status(400).json({ message: "Skill already exist" });
   
     const newMentorData = new MentorData({
       ...post,

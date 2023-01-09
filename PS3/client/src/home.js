@@ -105,9 +105,9 @@ function Main() {
                     </label>
                   </div>
                 <div className="form-check">
-                    <input onChange={handleChange} className="form-check-input" type="radio" name="uType" id="mentorType" value="admin"/>
+                    <input onChange={handleChange} className="form-check-input" type="radio" name="uType" id="mentorType" value="mentor"/>
                     <label className="form-check-label" htmlFor="flexRadioDefault1" style={{fontSize: 1.5 + 'em'}}>
-                      Admin/Mentor
+                      Mentor
                     </label>
                   </div>
                   </div>

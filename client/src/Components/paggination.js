@@ -5,14 +5,7 @@ const Paggination = ({ totalpost, postperpage, pagginate }) => {
     for (let i = 1; i <= Math.ceil(totalpost / postperpage); i++) {
         numbers.push(i);
     }
-    // setTimeout(() => {
-    //     let cols = document.getElementsByClassName("col")
-    //     Array.from(cols).forEach(col => {
-    //         col.style.maxWidth = "fit-content"
-    //         col.style.width = "20px"
-    //     });
 
-    // },1)
     return (
         <>
             <ul className="pageno">

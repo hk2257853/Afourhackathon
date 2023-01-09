@@ -1,6 +1,6 @@
 import "../Components/css/style.css"
 
-function contact() {
+function AboutUs() {
   return (
   <div className="aboutusbg">      
 
@@ -69,4 +69,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default AboutUs;

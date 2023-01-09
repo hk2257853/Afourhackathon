@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import "./index.css"
 import * as api from "../api"
 import * as yup from "yup";
 
@@ -28,8 +27,8 @@ function SkillForm() {
                 alert("Skill created successfully!")
             })
             .catch(error => {
-                console.log(error)
-                alert("Something went wrong, Please try again later");
+            if(error.response.data.message) alert(error.response.data.message);
+            else alert("Something went wrong, Please try again later");
             });
 
     }
